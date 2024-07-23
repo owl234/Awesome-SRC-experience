@@ -15,7 +15,7 @@ org:Company.Inc
 首先，我对IP地址进行了全面的端口扫描，并将扫描结果传递给 `httpx` 工具，以检查其提供的HTTP服务。
 
 ```bash
-naabu -host <ip> -p -Pn -o portscan | httpx -sc -td -server
+naabu -host <ip> -p - -Pn -o portscan | httpx -sc -td -server
 ```
 <img src="https://github.com/owl234/Awesome-SRC-experience/blob/main/SRC_Methodology/img/1_75Ki83rT7dkqlELXRcXrWQ.gif" title="" alt="" data-align="center">
 令我惊讶的是，我发现了更多开放端口，其中一个新发现的端口运行着HTTP服务。
