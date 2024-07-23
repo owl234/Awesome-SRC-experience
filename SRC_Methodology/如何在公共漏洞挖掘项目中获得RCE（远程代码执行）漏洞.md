@@ -80,3 +80,7 @@ dirsearch -u <http://x.x.x.x:8333> -w ~/wordlist/OnelistForAll/onelistforallshor
 接下来，我将此问题报告给`BugCrowd`它们立即进行了分类，但该计划后来将其降级为P2，称其为旧资产，并通过删除IP来解决。
 
 
+
+原文链接：[https://medium.com/@yousefmoh15/how-i-got-rce-in-one-of-bugcrowds-public-programs-5725c8dc46ce](https://medium.com/@yousefmoh15/how-i-got-rce-in-one-of-bugcrowds-public-programs-5725c8dc46ce)
+
+
