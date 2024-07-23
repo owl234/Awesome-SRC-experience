@@ -1,8 +1,9 @@
 # Awesome-SRC-Methodology
 # 中文
-一些好用的SRC策略。
+
+一些好用的SRC测试思路。
 
 # English
-Effective SRC Strategies.
 
+Awesome Strategies for SRC Testing。
 
