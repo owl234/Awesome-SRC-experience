@@ -1,7 +1,7 @@
 # Awesome-SRC-experience
 # 中文
 
-一些好用的SRC测试经验。
+一些好用的SRC漏洞测试经验。
 
 # English
 
