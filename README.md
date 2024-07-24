@@ -1,14 +1,8 @@
 # :sparkles: Awesome-SRC-experience
 
-国内外一些好用的SRC漏洞经验、知识、思路、工具分享。
+国内外一些好用的SRC漏洞挖掘经验、知识、思路、工具分享。
 
-Sharing Valuable Experiences, Knowledge, Approaches, and Tools for SRC Vulnerability Discovery.
-
-## :heart: SRC_Methodology
-
-一些好用的SRC测试思路。
-
-Awesome Strategies for SRC Testing。
+Sharing vulnerability discovery experiences, knowledge, approaches, and Tools.
 
 ## Star History
 
