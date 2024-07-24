@@ -14,11 +14,9 @@ Each tool will be matched to the appropriate module based on its strengths, allo
 
 - [Naabu](https://github.com/projectdiscovery/naabu) ：一款用Go语言编写的端口扫描工具，能快速枚举主机上的有效端口。这是一个非常简单的工具，可对主机或主机列表执行快速SYN/CONNECT/UDP扫描并列出所有返回响应的端口。
 
-        
 
 ### :eyeglasses:  指纹识别（Fingerprinting）
 
 - [httpx](https://github.com/projectdiscovery/httpx) ：一款快速且多功能的HTTP工具包，支持使用retryablehttp库运行多个探针。旨在即使在使用多线程的情况下也能保持结果可靠性。可用于技术栈和Web服务器探测。
 
-- 
   
