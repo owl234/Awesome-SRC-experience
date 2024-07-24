@@ -1,9 +1,9 @@
-# Awesome-SRC-Methodology
+# Awesome-SRC-experience
 # 中文
 
-一些好用的SRC测试思路。
+一些好用的SRC测试经验。
 
 # English
 
-Awesome Strategies for SRC Testing。
+Awesome experience for SRC Testing and bug bounty。
 
