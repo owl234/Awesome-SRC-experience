@@ -2,6 +2,8 @@
 
 Metasploit 是一个非常强大的渗透测试框架。本篇初学者指南将引导你完成Metasploit入门的关键步骤，从安装到进行第一个渗透测试任务。我会详细的记录漏洞利用的每一步，同时解释基本概念和理论。
 
+![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/exploit%26post-penetration%20.png)
+
 ## Metasploit 简介
 
 Metasploit 是一款强大的渗透测试框架，允许网络安全专业人士和白帽黑客评估网络和系统的安全性。它有两个主要版本：
