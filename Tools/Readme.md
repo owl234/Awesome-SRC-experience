@@ -4,7 +4,7 @@
 
 To effectively categorize the vast array of penetration testing tools, we can abstract the penetration testing process into the following modules:
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/FlowChart.png)
+![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/FlowChart.png)
 
 每个工具会根据其优势，正确匹配到各个模块中，供大家针对性学习。
 
