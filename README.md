@@ -22,9 +22,9 @@ Each tool will be matched to the appropriate module based on its strengths, allo
 
 ## :star: Fundamentals
 
-一些SRC漏洞挖掘和渗透测试需要的基础知识。
+一些SRC漏洞挖掘和渗透测试需要的基础知识、还有一些相关书籍。
 
-Fundamental knowledge required for SRC vulnerability research and penetration testing.
+Some foundational knowledge required for SRC vulnerability discovery and penetration testing, as well as relevant books.
 
 ## Star History
 
