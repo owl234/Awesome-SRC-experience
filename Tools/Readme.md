@@ -18,8 +18,8 @@ Each tool will be matched to the appropriate module based on its strengths, allo
 ### :eyeglasses:  指纹识别（Fingerprinting）
 
 - [httpx](https://github.com/projectdiscovery/httpx) ：一款快速且多功能的HTTP工具包，支持使用retryablehttp库运行多个探针。旨在即使在使用多线程的情况下也能保持结果可靠性。可用于技术栈和Web服务器探测。
-<<<<<<< HEAD
-=======
 
-  
->>>>>>> a911614a3a41affb6279894d2698462afa66c981
+### :computer: 漏洞利用（Exploit）
+
+- [Metasploit-framework](https://github.com/rapid7/metasploit-framework) : Metasploit-framework 是一组拥有信息收集、扫描、漏洞利用、漏洞挖掘、后渗透等的开源渗透测试框架，常用于漏洞利用和后渗透测试。
+
