@@ -12,7 +12,7 @@ Metasploit 是一款强大的渗透测试框架，允许网络安全专业人士
 
 - **Metasploit Framework:** 从命令行运行的开源版本。
 
-Metasploit 框架是一组拥有信息收集、扫描、漏洞利用、漏洞挖掘、后渗透等的工具。Metasploit框架的主要组件可以总结如下：
+Metasploit-framework 是一组拥有信息收集、扫描、漏洞利用、漏洞挖掘、后渗透等的工具。Metasploit框架的主要组件可以总结如下：
 
 - **Msfconsole：** 主命令行界面。
 
