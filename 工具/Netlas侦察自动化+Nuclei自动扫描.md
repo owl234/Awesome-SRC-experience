@@ -1,6 +1,6 @@
 # Netlas侦察自动化+Nuclei自动扫描
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_--5o3oamKsoGyyuPNPqwgw.webp)
+![](../img/1_--5o3oamKsoGyyuPNPqwgw.webp)
 
 Netlas是一个新工具，提供多种服务，如IP WHOIS查询、DNS查询、攻击面发现、证书搜索、响应搜索等。它是一个很好的Shodan替代品。
 
@@ -13,7 +13,7 @@ https://github.com/humblelad/neuro
 
 请确保在你的漏洞扫描器中安装了httpx、Nuclei和Netlas Python依赖。如果按照文档中的步骤操作，这个过程非常简单。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_p6jfLD21f-OcyNWphIawuA.webp)
+![](../img/1_p6jfLD21f-OcyNWphIawuA.webp)
 
  **httpx** 安装方法：
 

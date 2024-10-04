@@ -10,18 +10,18 @@ org:Company.Inc
 
 在经过一番探索后，我发现了一个引人注目的目标，决定对其进行攻击。选择该目标的原因是，我发现它开放了非标准端口，而且运行着 **Tomcat/8.5.32** 版本。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_jXuV7DEcDagNjxxVvFgH7g.jpg)
+![](../img/1_jXuV7DEcDagNjxxVvFgH7g.jpg)
 
 首先，我对IP地址进行了全面的端口扫描，并将扫描结果传递给 `httpx` 工具，以检查其提供的HTTP服务。
 
 ```bash
 naabu -host <ip> -p - -Pn -o portscan | httpx -sc -td -server
 ```
-<img src="https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_75Ki83rT7dkqlELXRcXrWQ.gif" title="" alt="" data-align="center">
+<img src="../img/1_75Ki83rT7dkqlELXRcXrWQ.gif" title="" alt="" data-align="center">
 
 令我惊讶的是，我发现了更多开放端口，其中一个新发现的端口运行着HTTP服务。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_hEe7XtLKFmHUcCT52CCMLQ.jpg)
+![](../img/1_hEe7XtLKFmHUcCT52CCMLQ.jpg)
 
 我发现端口 `8333` 运行着另一个版本的`Tomcat` 服务器，这是要给有趣的发现，让我们继续测试。首先，让我们使用`searchploit` 工具搜索与该版本相关的CVE漏洞。
 
@@ -29,10 +29,10 @@ naabu -host <ip> -p - -Pn -o portscan | httpx -sc -td -server
 searchsploit "tomcat 7"
 ```
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_IN2KugF8Yh-EPyZG-LA5pg.jpg)
+![](../img/1_IN2KugF8Yh-EPyZG-LA5pg.jpg)
 
 遗憾的是，上述的漏洞里利用方法均未成功，包括针对 CVE-2017-12617 和 CVE-2020-1938 的攻击。
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_-pqAivs9hz4Z3MYkWBxypA.gif)
+![](../img/1_-pqAivs9hz4Z3MYkWBxypA.gif)
 
 回到主页后，我决定开始进行目录和文件模糊测试。首先，我使用默认字典列表尝试使用`dirsearch`工具。
 
@@ -48,7 +48,7 @@ hydra -L ~/tomcat-usernames -P ~/tomcat-passwords x.x.x.x -s 8333 http-get /mana
 
 再次一无所获。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_PYSZnqlqQ1zKkfF7Nob2Kw.gif)
+![](../img/1_PYSZnqlqQ1zKkfF7Nob2Kw.gif)
 
 再次进行模糊测试，这次使用来自[GitHub - six2dez/OneListForAll](https://github.com/six2dez/OneListForAll) 的`shortlist` 词表。
 
@@ -60,24 +60,23 @@ dirsearch -u <http://x.x.x.x:8333> -w ~/wordlist/OnelistForAll/onelistforallshor
 
 因此，我立即开始测试是否u才能在SQL注入漏洞，但没有成功。然后我记起 CVE-2017-5638，所以我是用`nuclei`模板对该端点进行了测试，但仍然没有发现任何结果。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_WHyhjTvpF-Oxq00wrT_sOQ.gif)
+![](../img/1_WHyhjTvpF-Oxq00wrT_sOQ.gif)
 
 回到`/sdp/`端点之后的目录模糊测试中，这次我发现了一个新的目录：`/sdp/struts/webconsole.html?debug=console`
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_0YxpmznY5qmwq1Aa6U9Zew.jpg)
+![](../img/1_0YxpmznY5qmwq1Aa6U9Zew.jpg)
 
 那一刻，我非常高兴，以为自己找到了RCE（远程命令执行）漏洞。但随后，我又遇到了无数次的问题：控制台出现了大量JS错误，每次修复一个，另一个又出现。最后，我只能在OGNL 控制台中打印HTML代码，无法执行命令。
 
 回到Burp Session的历史选项卡中，滚动浏览时，我发现了一个新文件：`showLogin.action`。出于绝望，我决定尝试一个我在搜索Apache Struts 2 和OGNL注入相关的实验室和文章时找到的有效负载。
 
-![](https://github.com/owl234/Awesome-SRC-experience/blob/main/img/1_qtiInA-eaOcryZyPezKhQA.jpg)
+![](../img/1_qtiInA-eaOcryZyPezKhQA.jpg)
 
 该有效负载会在服务器上执行id命令。我将该负载添加到`showLogin.action` 并作为Get请求发送。突然，意想不到的事情发生了。当时我的反应是-->
 
-<img src="https://github.com/owl234/Awesome-SRC-experience/blob/main/img//1_BzJ5E-s26m34uwV6awIKmg.gif" title="" alt="" data-align="center">
+<img src="../img//1_BzJ5E-s26m34uwV6awIKmg.gif" title="" alt="" data-align="center">
 
 接下来，我将此问题报告给`BugCrowd`它们立即进行了分类，但该计划后来将其降级为P2，称其为旧资产，并通过删除IP来解决。
 
 原文链接：[https://medium.com/@yousefmoh15/how-i-got-rce-in-one-of-bugcrowds-public-programs-5725c8dc46ce](https://medium.com/@yousefmoh15/how-i-got-rce-in-one-of-bugcrowds-public-programs-5725c8dc46ce)
-
 
