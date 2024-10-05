@@ -2,13 +2,9 @@
 
 为了给庞杂的渗透测试工具分类，我们简单将渗透测试流程抽象为以下几个模块：
 
-To effectively categorize the vast array of penetration testing tools, we can abstract the penetration testing process into the following modules:
-
 ![](../img/FlowChart.png)
 
 每个工具会根据其优势，正确匹配到各个模块中，供大家针对性学习。
-
-Each tool will be matched to the appropriate module based on its strengths, allowing users to learn in a targeted manner.
 
 ### :star: 端口扫描（Port scanning）
 
