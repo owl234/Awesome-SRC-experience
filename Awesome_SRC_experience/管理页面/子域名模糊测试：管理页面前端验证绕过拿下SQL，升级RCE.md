@@ -129,7 +129,7 @@ ffuf -w /subdomain_megalist.txt -u 'https://adminFUZZ.Target.com' -c  -t 350 -mc
 
 模糊测试神器：[ffuf](https://github.com/ffuf/ffuf)
 
-Web测试神器：[Burp suite](https://portswigger.net/burp)
+Web安全测试神器：[Burp suite](https://portswigger.net/burp)
 
 SQL注入检测和利用神器：[sqlmap](https://github.com/sqlmapproject/sqlmap)
 
