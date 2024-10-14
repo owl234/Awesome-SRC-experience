@@ -47,11 +47,11 @@ Win: go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 nuclei -u http://techyrick.com
 ```
 
-![](../img/Screenshot-2023-06-15-at-10.46.03-AM-1536x816.webp)
+![](../../img/Screenshot-2023-06-15-at-10.46.03-AM-1536x816.webp)
 
 我发现我的站点存在开放端口，并且我想扫描其中的22号端口（SSH）。
 
-![](../img/Screenshot-2023-06-15-at-10.52.04-AM.webp)
+![](../../img/Screenshot-2023-06-15-at-10.52.04-AM.webp)
 
 这些命令将使用Nuclei扫描数千种已知的漏洞，并枚举目标的相关信息。扫描结果非常出色，你可以尝试在我的站点上进行扫描，查看详细的DNS记录结果。我对此感到非常惊讶。
 
@@ -63,7 +63,7 @@ nuclei -u http://techyrick.com
 nuclei -l domains.txt
 ```
 
-![](../img/Screenshot-2023-06-15-at-10.58.41-AM.webp)
+![](../../img/Screenshot-2023-06-15-at-10.58.41-AM.webp)
 
 ### 工具集成
 
@@ -73,7 +73,7 @@ nuclei -l domains.txt
 subfinder -d domains.txt | httpx | nuclei -t "http/technologies/prestashop-detect.yaml"
 ```
 
-![](../img/Screenshot-2023-06-15-at-4.58.13-PM-1536x795.webp)
+![](../../img/Screenshot-2023-06-15-at-4.58.13-PM-1536x795.webp)
 
 ### 过滤
 
@@ -83,7 +83,7 @@ subfinder -d domains.txt | httpx | nuclei -t "http/technologies/prestashop-detec
 nuclei -u http://techyrick.com -as
 ```
 
-![](../img/Screenshot-2023-06-15-at-5.02.37-PM-1536x781.webp)
+![](../../img/Screenshot-2023-06-15-at-5.02.37-PM-1536x781.webp)
 
 如果你想使用最新的模板，可以尝试以下命令。
 
@@ -91,11 +91,11 @@ nuclei -u http://techyrick.com -as
 nuclei -u http://techyrick.com -nt
 ```
 
-![](../img/Screenshot-2023-06-15-at-5.04.33-PM.webp)
+![](../../img/Screenshot-2023-06-15-at-5.04.33-PM.webp)
 
 我们还可以添加特定的模板来扫描目标。
 
-![](../img/Screenshot-2023-06-15-at-5.18.00-PM-1536x625.webp)
+![](../../img/Screenshot-2023-06-15-at-5.18.00-PM-1536x625.webp)
 
 你知道的，我们可以通过标签进行过滤，请查看下面的命令。
 
@@ -109,7 +109,7 @@ nuclei -u https://jira.techyrick.com -tags jira,generic
 nuclei -u http://techyrick.com -s critical,high,medium,low,info -as
 ```
 
-![](../img/Screenshot-2023-06-15-at-5.28.34-PM-1536x838.webp)
+![](../../img/Screenshot-2023-06-15-at-5.28.34-PM-1536x838.webp)
 
 ### 模板
 
@@ -121,9 +121,9 @@ https://nuclei-templates.netlify.app/
 
 你还可以找到许多有关OSINT、PD Teams、CVE-2023、RCE和接管的模板。
 
-![](../img/Screenshot-2023-06-15-at-5.23.06-PM-1536x1097.webp)
+![](../../img/Screenshot-2023-06-15-at-5.23.06-PM-1536x1097.webp)
 
-![](../img/Screenshot-2023-06-15-at-5.23.12-PM-1536x695.webp)
+![](../../img/Screenshot-2023-06-15-at-5.23.12-PM-1536x695.webp)
 
 ### 速率限制
 
@@ -133,7 +133,7 @@ https://nuclei-templates.netlify.app/
 nuclei -u http://techyrick.com/ -rl 3 -c 2
 ```
 
-![](../img/Screenshot-2023-06-15-at-5.47.33-PM.webp)
+![](../../img/Screenshot-2023-06-15-at-5.47.33-PM.webp)
 
 我们还可以设置超时、重试和错误次数。
 
@@ -149,7 +149,7 @@ nuclei -u http://techyrick.com/ -rl 3 -c 2
 nuclei -l domains.txt -resume /home/rick/.config/nuclei/resume-ci5g1996u63ag4n7897g.cfg
 ```
 
-![](../img/Screenshot-2023-06-15-at-5.54.08-PM.webp)
+![](../../img/Screenshot-2023-06-15-at-5.54.08-PM.webp)
 
 ## 结论
 

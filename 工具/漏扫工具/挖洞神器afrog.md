@@ -66,7 +66,7 @@ afrog -T urls.txt
 afrog -web
 ```
 
-![](../img/webcommand.png)
+![](../../img/webcommand.png)
 
 ## 配置文件
 
@@ -142,7 +142,7 @@ JSON 文件的内容是实时更新的。需要注意的是：再扫描完成之
 
 ## 运行截图
 
-![](../img/1.png)
+![](../../img/1.png)
 
 ## 作为库使用
 

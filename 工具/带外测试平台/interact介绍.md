@@ -223,7 +223,7 @@ Interactsh-web是一个免费开源的Web客户端，可以在你的浏览器中
 
 一个托管的Interactsh-web客户端实例可以在https://app.interactsh.com访问。
 
-![](../img/136621531-d72c9ece-0076-4db1-98c9-21dcba4ba09c.png)
+![](../../img/136621531-d72c9ece-0076-4db1-98c9-21dcba4ba09c.png)
 
 ## Interactsh Docker镜像
 
@@ -257,7 +257,7 @@ interactsh-collaborator 是由 @wdahlenb 开发并维护的Burp Suite扩展。
 - 安装成功后，会新出现一个名为Interactsh的选项卡。 
 - 有关更多信息，请参阅interactsh-collaborator项目。
 
-![](../img/135176099-0e3fa01c-bdce-4f04-a94f-de0a34c7abf6.png)
+![](../../img/135176099-0e3fa01c-bdce-4f04-a94f-de0a34c7abf6.png)
 
 ## Interactsh服务器
 
@@ -346,7 +346,7 @@ DEBUG:
 
 - 点击“添加”（Add），然后提交 `ns1` 和 `ns2`，并将您的 `SERVER_IP` 作为值。
 
-![](../img/135175512-135259fb-0490-4038-845a-0b62b1b8f549.png)
+![](../../img/135175512-135259fb-0490-4038-845a-0b62b1b8f549.png)
 
 - 导航到 https://dcc.godaddy.com/control/dnsmanagement?domainName={{domain}}&subtab=nameservers
 
@@ -356,7 +356,7 @@ DEBUG:
 
 - 提交 ns1.INTERACTSH_DOMAIN 和 ns2.INTERACTSH_DOMAIN
 
-![](../img/135175627-ea9639fd-353d-441b-a9a4-dae7f540d0ae.png)
+![](../../img/135175627-ea9639fd-353d-441b-a9a4-dae7f540d0ae.png)
 
 ## 在您的 VPS 上安装 interactsh-server
 
@@ -374,6 +374,6 @@ interactsh-server -domain INTERACTSH_DOMAIN
 
 以下是一个成功安装并运行自托管服务器的示例：
 
-![](../img/150676089-b5638c19-33a3-426a-987c-3ac6fa227012.png)
+![](../../img/150676089-b5638c19-33a3-426a-987c-3ac6fa227012.png)
 
 为了让 `interactsh-server` 以默认设置运行，一些必要的标志会被自动配置。例如，如果系统有公网 IP 地址，那么 `ip` 和 `listen-ip` 标志就会被设置为这个公网 IP 地址。
