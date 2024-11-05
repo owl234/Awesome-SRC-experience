@@ -1,6 +1,6 @@
 # Web服务器渗透测试经验
 
-## 文章测试流程
+## 文章漏洞测试流程图
 
 [Tomcat渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE](./Tomcat渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE.md)：
 
