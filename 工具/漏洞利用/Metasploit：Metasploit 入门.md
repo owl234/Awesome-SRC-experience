@@ -2,8 +2,6 @@
 
 Metasploit 是一个非常强大的渗透测试框架。本篇初学者指南将引导你完成Metasploit入门的关键步骤，从安装到进行第一个渗透测试任务。我会详细的记录漏洞利用的每一步，同时解释基本概念和理论。
 
-![](../img/exploit%26post-penetration%20.png)
-
 ## Metasploit 简介
 
 Metasploit 是一款强大的渗透测试框架，允许网络安全专业人士和白帽黑客评估网络和系统的安全性。它有两个主要版本：
@@ -96,7 +94,7 @@ Metasploit 由各种模块组成，包括漏洞利用模块、辅助模块和后
 
 通常情况下，当你启动msfconsole时，你首先会使用search命令来查找特定的模块。（如果你想要更多的帮助，可以使用help search）
 
-![](../img/0_gMrDeGHblyH9gcJ8.webp)
+![](../../img/0_gMrDeGHblyH9gcJ8.webp)
 
 虽然你可以简单地使用`search enternal blue` 这样的命令，但理论上可能会返回数百个模块，因为Metasploit中有大量可用的模块。这就是我推荐使用搜索运算符的原因。
 
@@ -142,7 +140,7 @@ use expoit/windows/smb/ms08_067_netapi
 use 7
 ```
 
-![](../img/0_6cccVB_4Q6aXG_EC.webp)
+![](../../img/0_6cccVB_4Q6aXG_EC.webp)
 
 现在，你已经加载了一个模块，可以使用`info` 命令来阅读更多关于所选模块的信息。
 
@@ -152,7 +150,7 @@ use 7
 
 使用`show option` 命令可以查看所选模块可用的选项。请注意，不同模块的选项可能差异很大，因此在选择新模块后，一定要看一下它的选项。
 
-![](../img/0_3IKIkk02Za5OO1v4.webp)
+![](../../img/0_3IKIkk02Za5OO1v4.webp)
 
 当你找到需要更改的选项时，可以使用`set` 命令来配置所选漏洞利用模块的必要选项，例如目标IP地址和有效载荷。
 
@@ -179,7 +177,7 @@ set LPORT 4141
 
 最后，使用`exploit`或`run `命令来执行漏洞利用操作。
 
-![](../img/0_3IKIkk02Za5OO1v4.webp)
+![](../../img/0_3IKIkk02Za5OO1v4.webp)
 
 Metasploit 将根据你的配置尝试攻击目标系统。如果幸运，你将在目标系统上获得一个shell。但通常我们需要调整更多的设置。现在让我们讨论其他重要的Metasploit概念，例如目标、漏洞利用和Meterpreter shell。
 
@@ -363,15 +361,15 @@ Meterpreter 完全在主机的内存中运行，不会在硬盘上留下任何�
 
 现在是时候使用一些后渗透命令了。首先将你的shell放到后台（按CTRI+Z）。然后输入`sessions -l` 查看会话ID。
 
-![](../img/0_DR53bXgqlwB9cu-2.webp)
+![](../../img/0_DR53bXgqlwB9cu-2.webp)
 
 列出正在运行的会话。通过输入`search enum` 来查找合适的模块。这将会显示：
 
-![](../img/0_4P9tnTfmBauKDRmk.webp)
+![](../../img/0_4P9tnTfmBauKDRmk.webp)
 
 看起来很有趣，加载它并设置会话选项为1。
 
-![](../img/0_uzTpm1696GEztqZg.webp)
+![](../../img/0_uzTpm1696GEztqZg.webp)
 
 现在，你可以运行后渗透模块，它将在之前建立的会话上运行。你将能够运行不同的操作，从而增加对系统的控制。
 
@@ -469,7 +467,7 @@ exploit
 sudo msfconsole
 ```
 
- ![](../img/1_Er5lJm8u6FYexKXOoVT1Fg.webp)
+ ![](../../img/1_Er5lJm8u6FYexKXOoVT1Fg.webp)
 
 首先，我们需要借助nmap等工具确定目标机器上有哪些端口是开放的。一旦找到开放的端口（假设是22号端口，即SSH端口），我们就可以使用以下代码（从kali database 中查找所有的漏洞）：
 
@@ -477,7 +475,7 @@ sudo msfconsole
 searchsploit ssh 
 ```
 
-![](../img/1_AaTz4ZArA3hPEVmz4tdlzg.webp)
+![](../../img/1_AaTz4ZArA3hPEVmz4tdlzg.webp)
 
 这里我们选择 “free**SSH**d 1.2.6 — Authentication Bypass (Metasploit)”漏洞。
 
@@ -487,14 +485,14 @@ use exploit/windows/ssh/fresshd_authbypass
 show targets  //选择目标
 ```
 
-![](../img/1_zh9b47VDFImR3SYqO0aLtg.webp)
+![](../../img/1_zh9b47VDFImR3SYqO0aLtg.webp)
 
 ```bash
 set TARGET 0 
 show options 
 ```
 
-![](../img/1_IlGr9XQ332u2YgClrRkU6w.webp)
+![](../../img/1_IlGr9XQ332u2YgClrRkU6w.webp)
 
 ```bash
 set RHOSTS IP_ADDRESS_YOU_WANT_TO_EXPLOIT
@@ -518,27 +516,27 @@ Password:Password1
 
 首先启动`msfconsole`，然后输入`use exploit/windows/smb/pasexec`。
 
-![](../img/1_w6hMW1Gjtd3v6WX-m-JogQ.webp)
+![](../../img/1_w6hMW1Gjtd3v6WX-m-JogQ.webp)
 
 设置相关的选项，这里指的是 RHOSTS (目标IP)、SMBPass（Password1）和SMBUser（ballen）。最后输入`run` ! 之后可以获得一个Meterpreter会话。
 
 使用`sysinfo` 获取系统信息。
 
-![](../img/1_8YiK2bo7434YGHKu-T5s4w.webp)
+![](../../img/1_8YiK2bo7434YGHKu-T5s4w.webp)
 
 #### 发现用户的共享
 
   现在是时候使用一些端口利用命令了。首先将Meterpreter后台化（按CTRL+Z）。通过输入`session -l` 查看会话ID，这个ID可能为1。
 
-![](../img/1_f0sbL8NQeuz2AM12B5eFEA.webp)
+![](../../img/1_f0sbL8NQeuz2AM12B5eFEA.webp)
 
 通过输入`search enum` 查找合适的模块。我发现了：
 
-![](../img/1_wJKusXqPzgOGSlguuQ1WwQ.webp)
+![](../../img/1_wJKusXqPzgOGSlguuQ1WwQ.webp)
 
 看起来很有趣，加载它然后将它的session选项设置为1.
 
-![](../img/1_ZDM5kVmcvdkC1P7KQrnS9g.webp)
+![](../../img/1_ZDM5kVmcvdkC1P7KQrnS9g.webp)
 
 由于用户名是ballen，而且域名为FLASH，共享的名称就是speedster。
 
@@ -548,7 +546,7 @@ Password:Password1
 
 首先我尝试再次进入Meterpreter会话，输入`session -i 1` 。然后我尝试运行`hashdump` 但是失败了。我使用Google搜索后，找到了`migrate`命令，然后，我使用`ps` 命令列出了所有进程，并将meterpreter迁移到一个系统进程，成功！：
 
-![](../img/1_JfOGu0A1iZcQjLFjZos57A.webp)
+![](../../img/1_JfOGu0A1iZcQjLFjZos57A.webp)
 
 #### 获取明文密码
 

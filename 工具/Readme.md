@@ -28,3 +28,8 @@
 - [Interactsh](https://app.interactsh.com/)：Interactsh 是一种用于带外数据提取的开源解决方案，它是一种用于检测导致外部交互的错误（例如盲 SQLi、盲 CMDi、SSRF 等）的工具。
 
 - [EYES](https://github.com/lijiejie/eyes.sh)：[eyes.sh](http://eyes.sh/)是用来辅助安全测试和漏扫工具的DNS Log / HTTP Log检测工具，基于 [BugScan DNSLog](https://github.com/bugscanteam/dnslog/) 优化。
+
+### :boat:自动化漏洞发现
+
+- [Netlas侦察自动化+Nuclei自动扫描](./自动化漏洞发现/Netlas侦察自动化+Nuclei自动扫描.md)：Netlas是一个新工具，提供多种服务，如IP WHOIS查询、DNS查询、攻击面发现、证书搜索、响应搜索等。
+
