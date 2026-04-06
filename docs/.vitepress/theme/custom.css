@@ -50,7 +50,7 @@
   z-index: 2;
   /* 宽度适度收敛，位置略微偏上，获得最佳视觉比例 */
   width: 80%;
-  margin-left: -65%;
+  margin-left: -70%;
   margin-top: -360px;
   /* 让图片向上浮动一些 */
   max-width: none !important;
