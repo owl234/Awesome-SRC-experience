@@ -1,4 +1,4 @@
-﻿# Nuclei：如何快速构建自己的Nuclei模板
+# Nuclei：如何快速构建自己的Nuclei模板
 
 > 此文章将深入讨论论如何创建独特的nuclei模板！不要错过，我会展示三种简单的方法来构建你自己的Nuclei模板！让我们增加你赢得赏金的机会！
 
@@ -105,7 +105,7 @@ nuclei -u target.com -tags dns
 
 因此，在X上，你应该使用这些搜索字段--`#bugbounty tips` 和`valnerability type`。
 
-<img src="/img/0_8kKVAiBQ1uZAQ82b.webp" title="" alt="" data-align="center">
+![](/img/0_8kKVAiBQ1uZAQ82b.webp)
 
 理想情况下，你会找到想找到的有效负载和易受攻击的端点。添加`payloads`关键词也是一个好主意：
 

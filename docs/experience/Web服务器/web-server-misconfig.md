@@ -1,4 +1,4 @@
-﻿
+
 
 # Tomcat 渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE
 
@@ -17,7 +17,7 @@ org:Company.Inc
 ```bash
 naabu -host <ip> -p - -Pn -o portscan | httpx -sc -td -server
 ```
-<img src="/img/1_75Ki83rT7dkqlELXRcXrWQ.gif" title="" alt="" data-align="center">
+![](/img/1_75Ki83rT7dkqlELXRcXrWQ.gif)
 
 令我惊讶的是，我发现了更多开放端口，其中一个新发现的端口运行着HTTP服务。
 
@@ -74,7 +74,7 @@ dirsearch -u <http://x.x.x.x:8333> -w ~/wordlist/OnelistForAll/onelistforallshor
 
 该有效负载会在服务器上执行id命令。我将该负载添加到`showLogin.action` 并作为Get请求发送。突然，意想不到的事情发生了。当时我的反应是-->
 
-<img src="/img/1_BzJ5E-s26m34uwV6awIKmg.gif" title="" alt="" data-align="center">
+![](/img/1_BzJ5E-s26m34uwV6awIKmg.gif)
 
 接下来，我将此问题报告给`BugCrowd`它们立即进行了分类，但该计划后来将其降级为P2，称其为旧资产，并通过删除IP来解决。
 

@@ -1,4 +1,4 @@
-﻿# 403页面绕过：拿到P1漏洞！
+# 403页面绕过：拿到P1漏洞！
 
 > 本篇文章将重点介绍处理403错误的方法，以及用几分钟的时间获得P1奖励的经历。
 
@@ -68,7 +68,7 @@ site.com/secret.json –> HTTP 200 OK (ruby)
 
 控制台管理器显示了非常敏感的组件数据，包括构建详细信息、操作系统详细信息和用户信息。并提供了一个用户代码执行的命令行界面（CLI）组件。
 
-<img src="/img/1_WCQDJye8HjN3SPRaB8r66Q.jpg" title="" alt="" data-align="center">
+![](/img/1_WCQDJye8HjN3SPRaB8r66Q.jpg)
 
 经审核，该漏洞被归类为P1级别，我后来获得了2100美元的赏金。
 

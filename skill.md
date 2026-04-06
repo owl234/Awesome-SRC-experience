@@ -1,3 +1,9 @@
+---
+name: github-influence-multiplier
+description: 用于诊断 GitHub 仓库的知识拓扑，并将其自动化重构为高性能、标准化的 VitePress 文档站，以提升项目影响力和 Star 数。
+tools: [terminal, file_system, web_search]
+---
+
 # Skill: GitHub Influence Multiplier (Knowledge-Base Optimizer)
 
 ## 核心理念 (First Principles)
@@ -52,7 +58,4 @@
    - **防御手段:** 凡是不绑定顶级自定义域名的仓库型内嵌 Pages，必须在初始化前端框架的第一时间确认注入由斜杠包裹的 `base` 参数。
 7. **CI/CD 构建环境衰退阻止发布 (Node Runner Deprecation):** GitHub 已经硬性废弃了底层依赖 Node.js 16 运行时的老旧 Actions 容器（例如 `actions/upload-pages-artifact@v2`）。盲目沿用过去的 `deploy.yml` CI流水线模板，会遭遇底层的 `Deprecated version` 拦截报错。
    - **防御手段:** 初始化流水线时主动审查插件版本号，确保将 `checkout`、`setup-node`、`deploy-pages` 和 `upload-pages-artifact` 核心编排件升级至支持 Node.js 20+ 的 `@v3` 和 `@v4` 版本。
-8. **深层引擎接管下的热更新劫持 (Theme HMR Blocking):** 在启动 `npm run docs:dev` 开发态进程后，若**事后首次创建**了 VitePress 原本不存在的主题挂载体系（如新建 `.vitepress/theme/index.js`），底层的 HMR 热重载引擎无法动态捕获这种架构级文件的诞生，将导致无论怎么修改 CSS 浏览器都不会生效的假象。
-   - **防御手段:** 当为项目新增核心挂载体系文件或大改站点全局基础架子时，应第一时间对终端进行硬重启（杀死进程再开），杜绝陷入无效的“前端代码调参陷阱”。
-9. **UI 样式霸占与物理容器塌陷 (Visual Squeezing & Mask clipping):** 在设计类似 Hero 区域黑客科技流光界面时，单独施加 `transform: scale()` 不会拓宽 DOM 容器实际的物理宽度尺寸，不仅会引发错位，还会被过度强硬的圆形 `mask-image` 残酷地切走原图精髓；盲目的 `border-radius` 则会制造不可见切线。
-   - **防御手段:** 实现“突破大画幅全息悬浮感”需要组合拳：解除父物理容器束缚（如注入 `width: 120%` 和反向 `margin` 进行重心修正），并一定要通过柔和覆盖全局的椭圆射线遮罩（`radial-gradient(ellipse 75% 75%...)`）代替等正圆心遮罩，以确保视觉张力在不发生页面位移崩塌的前提下最大化释放。
+
