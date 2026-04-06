@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Awesome SRC Experience",
   description: "企业级 SRC 漏洞挖掘实战经验与自动化利器集合",
+  base: '/Awesome-SRC-experience/',
   srcExclude: ['**/Nuclei：使用Nuclei查找漏洞的终极指南.md', '**/Metasploit：Metasploit 入门.md'],
   themeConfig: {
     nav: [
