@@ -1,0 +1,4 @@
+.agent/
+.env
+.skill.md
+node_modules/

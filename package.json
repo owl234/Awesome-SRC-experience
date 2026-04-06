@@ -1,0 +1,30 @@
+{
+  "name": "awesome-src-experience",
+  "version": "1.0.0",
+  "description": "<p align=\"left\">\r   <img src=\"https://img.shields.io/badge/Awesome-%E2%9C%94-brightgreen.svg\" alt=\"Awesome\">\r   <a href=\"https://github.com/owl234/Awesome-SRC-experience/pulls\"><img src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg\" alt=\"PRs Welcome\"></a>\r   <a href=\"https://github.com/owl234/Awesome-SRC-experience/blob/main/LICENSE\"><img src=\"https://img.shields.io/github/license/owl234/Awesome-SRC-experience\" alt=\"License\"></a>\r   <img src=\"https://img.shields.io/github/stars/owl234/Awesome-SRC-experience?style=social\" alt=\"Stars\">\r </p>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owl234/Awesome-SRC-experience.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/owl234/Awesome-SRC-experience/issues"
+  },
+  "homepage": "https://github.com/owl234/Awesome-SRC-experience#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.32"
+  }
+}

@@ -1,0 +1,101 @@
+/* ========================================================
+   1. VitePress 变量重写 (Colors & Globals)
+   ======================================================== */
+:root {
+  /* 定制标题渐变色，呼应右侧的蓝紫赛博风 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #a18cd1 30%, #fbc2eb);
+
+  /* 为了体现深邃感，把默认那个巨大模糊的色块抹掉或减弱 */
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
+}
+
+/* ========================================================
+   2. 首页排版调整 (Layout & Proportions)
+   ======================================================== */
+@media (min-width: 960px) {
+
+  /* 拓宽中间核心容器，让整体排版像截图一样大气舒展 */
+  .VPHero .container {
+    max-width: 1400px !important;
+  }
+
+  .VPHero .main {
+    flex: 1;
+  }
+
+  .VPHero .image {
+    flex: 1.3;
+    /* 给左侧留下更多呼吸空间，宽度窄一些符合审美 */
+  }
+}
+
+/* ========================================================
+   3. 边缘融合 (Edge Blending) 与 视觉包裹
+   ======================================================== */
+.VPHero .image-src,
+.VPHero .VPImage {
+  /* 更柔和的遮罩，保证图元不被过分切割 */
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+
+  /* 增加氛围光 (Ambient Glow) */
+  filter: drop-shadow(0 0 50px rgba(161, 140, 209, 0.4)) drop-shadow(0 0 20px rgba(79, 172, 254, 0.5));
+
+  /* 动态悬浮 (Floating Animation) */
+  animation: floating 4s ease-in-out infinite;
+
+  position: relative;
+  z-index: 2;
+  /* 宽度适度收敛，位置略微偏上，获得最佳视觉比例 */
+  width: 80%;
+  margin-left: -65%;
+  margin-top: -360px;
+  /* 让图片向上浮动一些 */
+  max-width: none !important;
+}
+
+/* 恢复星云背景并微调 */
+.VPHero .image-bg {
+  display: block !important;
+  opacity: 0.3 !important;
+  margin-top: -30px;
+}
+
+/* 关键帧动画定义：基准位移提升，并平缓悬浮 */
+@keyframes floating {
+  0% {
+    transform: translateY(0px) scale(1.1) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.1) translateX(0);
+  }
+
+  100% {
+    transform: translateY(0px) scale(1.1) translateX(0);
+  }
+}
+
+/* 小屏幕适配补丁 */
+@media (max-width: 959px) {
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .VPHero .image-src,
+  .VPHero .VPImage {
+    transform: none;
+  }
+}
