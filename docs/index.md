@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "Awesome SRC"
-  text: "安全攻防 · 经验倍增器"
-  tagline: "从 0 到 1 的实战演练 · 职业级漏洞复盘 · 自动化兵器库"
+  text: "精英级攻防 · 经验倍增器"
+  tagline: "从 1 到 100 的实战进阶 · 全平台漏洞复盘 · 自动化兵器库"
   image:
     src: /img/hero.png
     alt: Awesome SRC Experience
@@ -17,32 +17,33 @@ hero:
       link: /tools/Readme
 
 features:
-  - title: 🛡️ 职业级复盘
-    details: 拒绝碎片化笔记。每篇文档均遵循“战术背景、攻坚环节、防御闭环”标准，建立专家级渗透逻辑。
-  - title: ⚡ 自动化优先
-    details: 深度整合实战 Payloads。从人肉测试转向工程化自动扫描，让效率成为你的核心竞争力。
-  - title: 🌐 0 摩擦共建
-    details: 物理架构与侧边栏自动映射。无需繁琐配置，提交 Markdown 即刻发布全球，共享安全智慧。
+  - title: 🎯 Target 导向分类
+    details: 按物联网 (IoT)、Web 应用、云安全、关键基础设施进行分类，精准定位实战场景。
+  - title: ⚔️ 实战兵器谱
+    details: 深度整合 Nuclei, Interactsh 与自定义 Payloads，将手工作业提升为自动化工程。
+  - title: 🌐 零冲突共建
+    details: 基于 Target 拓扑的自动化索引。无需配置，提交 Markdown 即刻发布，全球共享。
 ---
 
 <div class="content-container">
 
-## 🎯 我们的使命
-
-让每一位安全从业者都能像**顶尖白帽**一样思考。这不仅是一个文档库，更是一个**漏洞发现的思维加速器**。
+## 🧩 攻防全景图 (ROADMAP)
 
 <div class="roadmap-grid">
-  <div class="roadmap-item">
-    <h3>🔍 资产发现</h3>
-    <p>从子域名枚举到隐蔽参数挖掘，不留死角。</p>
+  <div class="roadmap-item iot">
+    <h3>📡 IoT & Device</h3>
+    <p>固件分析、协议逆向、未授权访问。从硬件边界突破企业内网。</p>
+    <div class="tag">HIGH IMPACT</div>
   </div>
-  <div class="roadmap-item">
-    <h3>🧪 漏洞演练</h3>
-    <p>深度剖析 XSS, SQLi, Logic Flaws 等实战案例。</p>
+  <div class="roadmap-item web">
+    <h3>🌐 Web & App</h3>
+    <p>403 绕过、逻辑缺陷、SSRF、链式注入。主流 SRC 的核心战场。</p>
+    <div class="tag">P1 FOCUSED</div>
   </div>
-  <div class="roadmap-item">
-    <h3>🤖 自动武器化</h3>
-    <p>编写 Nuclei 模板，构建属于你的自动化扫描矩阵。</p>
+  <div class="roadmap-item cloud">
+    <h3>☁️ Cloud & Infra</h3>
+    <p>元数据泄露、S3 桶接管、K8s 逃逸。云原生时代的攻防新前线。</p>
+    <div class="tag">MODERN TECH</div>
   </div>
 </div>
 
@@ -61,7 +62,7 @@ features:
   font-weight: 800;
   line-height: 1.3;
   padding: 0.1em 0;
-  background: linear-gradient(135deg, #e0aaff, #9d4edd, #5a189a);
+  background: linear-gradient(135deg, #39ff14, #9d4edd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -72,20 +73,43 @@ features:
   margin-top: 32px;
 }
 .roadmap-item {
-  padding: 24px;
-  border-radius: 12px;
-  background: rgba(157, 78, 221, 0.05);
-  border: 1px solid rgba(157, 78, 221, 0.1);
-  transition: all 0.3s ease;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: rgba(10, 10, 15, 0.8);
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
 }
 .roadmap-item:hover {
-  transform: translateY(-5px);
-  background: rgba(157, 78, 221, 0.1);
-  border-color: #9d4edd;
-  box-shadow: 0 10px 40px rgba(157, 78, 221, 0.15);
+  transform: translateY(-8px);
+  border-color: #39ff14;
+  box-shadow: 0 10px 40px rgba(57, 255, 20, 0.15);
 }
 .roadmap-item h3 {
-  color: #9d4edd;
+  color: #39ff14;
   margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
+.roadmap-item p {
+  font-size: 0.95rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+}
+.roadmap-item .tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(57, 255, 20, 0.1);
+  color: #39ff14;
+  border: 1px solid rgba(57, 255, 20, 0.3);
+}
+.roadmap-item.iot { border-left: 4px solid #39ff14; }
+.roadmap-item.web { border-left: 4px solid #9d4edd; }
+.roadmap-item.cloud { border-left: 4px solid #00d4ff; }
 </style>

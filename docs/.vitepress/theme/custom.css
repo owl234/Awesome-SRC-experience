@@ -1,121 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 /* ========================================================
-   1. VitePress 变量重写 (Cyberpunk Purple Theme)
+   1. Hacker/Cyber Theme Core Variables
    ======================================================== */
 :root {
-  /* Core Colors - Deep Cyberpunk Purple Palette */
-  --vp-c-brand-1: #9d4edd;
+  /* Neon Accents */
+  --cyber-neon-purple: #9d4edd;
+  --cyber-neon-green: #39ff14;
+  --cyber-neon-blue: #00d4ff;
+  
+  --vp-c-brand-1: var(--cyber-neon-purple);
   --vp-c-brand-2: #7b2cbf;
   --vp-c-brand-3: #5a189a;
-  --vp-c-brand-soft: rgba(157, 78, 221, 0.14);
+  --vp-c-brand-soft: rgba(157, 78, 221, 0.1);
 
   /* Typography */
-  --vp-font-family-base: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  --vp-font-family-base: 'Outfit', 'Inter', sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', monospace;
 
-  /* Home Hero */
+  /* Home Hero Accents */
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #e0aaff 10%, #9d4edd 50%, #5a189a 90%);
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--cyber-neon-purple) 0%, var(--cyber-neon-green) 100%);
   
-  /* Layout */
-  --vp-layout-max-width: 1440px;
-}
-
-/* Dark Mode Specifics */
-.dark {
-  --vp-c-bg: #0d0d12;
-  --vp-c-bg-soft: #16161e;
-  --vp-c-bg-mute: #1a1b26;
-  --vp-sidebar-bg-color: rgba(13, 13, 18, 0.7);
-  --vp-nav-bg-color: rgba(13, 13, 18, 0.7);
+  /* Backgrounds (Forced Dark) */
+  --vp-c-bg: #050505;
+  --vp-c-bg-soft: #0a0a0f;
+  --vp-c-bg-mute: #12121a;
+  
+  --vp-sidebar-bg-color: rgba(5, 5, 5, 0.85);
+  --vp-nav-bg-color: rgba(5, 5, 5, 0.85);
 }
 
 /* ========================================================
-   2. Glassmorphism & Premium UI FX
+   2. Layout & Glassmorphism
+   ======================================================== */
+.VPNav {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(57, 255, 20, 0.1) !important;
+}
+
+.VPSidebar {
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(157, 78, 221, 0.1) !important;
+}
+
+/* ========================================================
+   3. Cyberpunk UI Elements
    ======================================================== */
 
-/* Sidebar Glassmorphism */
-@media (min-width: 960px) {
-  .VPSidebar {
-    backdrop-filter: blur(12px) saturate(180%);
-    background-color: var(--vp-sidebar-bg-color) !important;
-    border-right: 1px solid rgba(157, 78, 221, 0.1);
-  }
-}
-
-/* Nav Glassmorphism */
-.VPNav {
-  backdrop-filter: blur(8px);
-  background-color: var(--vp-nav-bg-color) !important;
-  border-bottom: 1px solid rgba(157, 78, 221, 0.1) !important;
-}
-
-/* Card Hover Animations */
+/* Neon Border for Cards */
 .VPFeature {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  border: 1px solid transparent !important;
-  background-color: var(--vp-c-bg-soft) !important;
+  background-color: #0d0d14 !important;
+  border: 1px solid rgba(157, 78, 221, 0.2) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .VPFeature:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: var(--vp-c-brand-1) !important;
-  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-  background-color: var(--vp-c-bg-mute) !important;
+  border-color: var(--cyber-neon-green) !important;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
+  transform: translateY(-5px);
+}
+
+.VPFeature::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-neon-purple), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.VPFeature:hover::after {
+  opacity: 1;
+}
+
+/* Sidebar Active Link Neon Green */
+.VPSidebarItem.level-1.active > .item > .link > .text,
+.VPSidebarItem.level-2.active > .item > .link > .text {
+  color: var(--cyber-neon-green) !important;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+/* Button Glow */
+.VPButton.brand {
+  background-color: var(--cyber-neon-purple) !important;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+  border: none !important;
+}
+
+.VPButton.brand:hover {
+  background-color: #7b2cbf !important;
+  box-shadow: 0 0 25px rgba(157, 78, 221, 0.6);
 }
 
 /* ========================================================
-   3. Home Page Layout & Hero FX
+   4. Code Block & Markdown Enhancements
    ======================================================== */
-@media (min-width: 960px) {
-  .VPHero .container {
-    max-width: 1200px !important;
-    padding: 64px 32px !important;
-  }
+.vp-doc code {
+  color: var(--cyber-neon-green) !important;
+  background-color: rgba(57, 255, 20, 0.05) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-/* Hero Image Glow & Animation */
-.VPHero .image-src,
-.VPHero .VPImage {
-  filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.5)) drop-shadow(0 0 10px rgba(224, 170, 255, 0.3));
-  animation: floating 6s ease-in-out infinite;
-  border-radius: 20px;
+.vp-doc pre {
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  background-color: #08080c !important;
 }
 
-@keyframes floating {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(-20px) rotate(1deg) scale(1.02); }
-}
-
-/* Selection Color */
-::selection {
-  background: var(--vp-c-brand-1);
-  color: white;
-}
-
-/* Custom Containers Enhancement */
+/* Custom Block Tips with Green */
 .custom-block.tip {
-  border-color: var(--vp-c-brand-1);
-  background-color: var(--vp-c-brand-soft);
+  border-color: var(--cyber-neon-green) !important;
+  background-color: rgba(57, 255, 20, 0.05) !important;
 }
 
 .custom-block.tip .custom-block-title {
-  color: var(--vp-c-brand-1);
+  color: var(--cyber-neon-green) !important;
 }
 
-/* ========================================================
-   4. Global Typography Fixes (Clipping Prevention)
-   ======================================================== */
-h1, h2, h3 {
-  line-height: 1.4 !important;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  margin-bottom: 0.5em;
+/* Scrollbar Hacker Style */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.vp-doc h2 {
-  margin-top: 32px;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 24px;
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-neon-purple);
 }

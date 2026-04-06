@@ -1,44 +1,50 @@
 ---
-title: "Readme"
-description: "Awesome SRC Experience - Readme"
+title: "自动化兵器谱 (Modern Arsenal)"
+description: "从资产发现到自动漏扫，整合一线 SRC 专家的自动化武器库。"
 ---
 
-## :heart: Tools
+# 🛠️ 自动化兵器谱 (Modern Arsenal)
 
-为了给庞杂的渗透测试工具分类，我们简单将渗透测试流程抽象为以下几个模块：
+> [!TIP]
+> **工具即杠杆**: 在现代 SRC 战场，速度决定收益。我们将渗透流程抽象为**自动化流水线**，每款工具都精准定位其在工程化中的坐标。
 
-![](/img/FlowChart.png)
+---
 
-每个工具会根据其优势，正确匹配到各个模块中，供大家针对性学习。
+## 🛰️ 资产发现与指纹 (Recon & Fingerprinting)
 
-### :star: 端口扫描
+| 工具名称 | 核心能力 | 实战坐标 |
+| :--- | :--- | :--- |
+| **[Naabu](https://github.com/projectdiscovery/naabu)** | 极速端口枚举 | SYN/CONNECT 扫描，快速锁定开放服务 |
+| **[httpx](https://github.com/projectdiscovery/httpx)** | 多维指纹识别 | 探测技术栈、Web 容器版本，配合 retryablehttp 保证高并发 |
+| **[ParamSpider](https://github.com/devanshbatham/ParamSpider)** | 隐藏参数挖掘 | 从 Wayback Machine 等存档提取 URL，为 Fuzzing 提供弹药 |
 
-- [Naabu](https://github.com/projectdiscovery/naabu) ：一款用Go语言编写的端口扫描工具，能快速枚举主机上的有效端口。这是一个非常简单的工具，可对主机或主机列表执行快速SYN/CONNECT/UDP扫描并列出所有返回响应的端口。
+---
 
-### :ant: URL 枚举
+## 🧬 带外测试与漏洞捕获 (OOB & Detection)
 
-- **Param Spider：** [Param Spider](https://github.com/devanshbatham/ParamSpider) 是一款强大的工具，专门用于从 **Wayback Machine** 等网络存档中挖掘有价值的 URL，以支持进一步的渗透测试工作，如漏洞挖掘、模糊测试等。
+- **[Interactsh](https://app.interactsh.com/)**: 开源带外数据提取方案。检测 Blind SQLi, SSRF, CMDi 的金标准。
+- **[EYES](https://github.com/lijiejie/eyes.sh)**: 深度优化的 DNSLog/HTTPLog 检测工具，适配国内主流扫描器。
 
-### :eyeglasses:  指纹识别
+---
 
-- [httpx](https://github.com/projectdiscovery/httpx) ：一款快速且多功能的HTTP工具包，支持使用retryablehttp库运行多个探针。旨在即使在使用多线程的情况下也能保持结果可靠性。可用于技术栈和web-servers探测。
+## 🔫 漏洞扫描与自动投弹 (Vuln Scanning)
 
-### :dizzy: oob-testing
+### [Nuclei](https://github.com/projectdiscovery/nuclei) 
+**SRC 自动化的灵魂。** 基于 YAML 模板的扫描器，支持 TCP/DNS/HTTP/Websocket 全协议。
+-   *实战建议*: 维护一套自己的私有模板库，是冲击排行榜的关键。
 
-- [Interactsh](https://app.interactsh.com/)：Interactsh 是一种用于带外数据提取的开源解决方案，它是一种用于检测导致外部交互的错误（例如盲 SQLi、盲 CMDi、SSRF 等）的工具。
+### [afrog](https://github.com/zan8in/afrog)
+高性能漏洞扫描利器。内置大量 CVE, CNVD 以及针对国内大厂的未授权访问 PoC。
 
-- [EYES](https://github.com/lijiejie/eyes.sh)：[eyes.sh](http://eyes.sh/) 是用来辅助安全测试和vuln-scanners的DNS Log / HTTP Log检测工具，基于 [BugScan DNSLog](https://github.com/bugscanteam/dnslog/) 优化。
+---
 
-### :computer: exploit-tools
+## ⚡ 自动发现流 (Auto-Discovery Pipeline)
 
-- [Metasploit-framework](https://github.com/rapid7/metasploit-framework) : Metasploit-framework 是一组拥有信息收集、扫描、exploit-tools、漏洞挖掘、后渗透等的开源渗透测试框架，常用于exploit-tools和后渗透测试。
+> [!IMPORTANT]
+> **[Netlas 侦察自动化 + Nuclei 自动扫描](./auto-discovery/netlas-nuclei-auto.md)**
+> 深度整合 Netlas API 与 Python 脚本，实现从“子域发现”到“全自动化投弹”的端到端闭环。
 
-### :mag: ​vuln-scanners
+---
 
-- [Nuclei](https://github.com/projectdiscovery/nuclei)：Nuclei 用于根据模板向目标发送请求，从而实现零误报，并可在大量主机上提供快速扫描。Nuclei 提供多种协议的扫描，包括 TCP、DNS、HTTP、SSL、文件、Whois、Websocket、Headless、代码等。凭借强大而灵活的模板，Nuclei 可用于模拟各种安全检查。
-- [afrog](https://github.com/zan8in/afrog)：afrog 是一款高性能漏洞扫描工具，速度快、稳定性高，支持自定义 PoC，内置 CVE、CNVD、默认密码、信息泄露、指纹识别、未授权访问、任意文件读取、命令执行等多种漏洞类型，帮助网络安全人员快速验证和修复漏洞，提升安全防御能力。
-
-### :boat:auto-discovery
-
-- [Netlas侦察自动化+Nuclei自动扫描](./auto-discovery/netlas-nuclei-auto.md)：Netlas是一个新工具，提供多种服务，如IP WHOIS查询、DNS查询、攻击面发现、证书搜索、响应搜索等。
-
+> [!CAUTION]
+> **安全声明**: 兵器库仅供合法的安全研究与 SRC 授权测试使用。请遵守相关法律法规，拒绝非法攻击。

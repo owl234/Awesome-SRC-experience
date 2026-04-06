@@ -18,73 +18,57 @@ function generateSidebar(baseDir, rootTitle) {
   }
 
   if (fs.existsSync(fullRoot)) {
-    const folders = fs.readdirSync(fullRoot)
-    const subGroups = []
+    const targets = fs.readdirSync(fullRoot)
+    const targetGroups = []
 
-    for (const folder of folders) {
-      if (folder === '.DS_Store' || folder.endsWith('.md') || folder === 'img' || folder === 'public') continue
+    for (const target of targets) {
+      const targetPath = path.join(fullRoot, target)
+      if (!fs.statSync(targetPath).isDirectory() || target === '.DS_Store' || target === 'img' || target === 'public' || target === '.vitepress') continue
       
-      const folderPath = path.join(fullRoot, folder)
-      if (fs.statSync(folderPath).isDirectory()) {
-        const files = fs.readdirSync(folderPath)
-        const items = []
-        let groupTitle = folder // Fallback
-        
-        // Try to get group title from folder's README.md
-        const folderReadme = files.find(f => f.toLowerCase() === 'readme.md')
-        if (folderReadme) {
-          const readmePath = path.join(folderPath, folderReadme)
-          const readmeContent = fs.readFileSync(readmePath, 'utf-8').replace(/^\uFEFF/, '')
-          const fmMatch = readmeContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
-          if (fmMatch) {
-            const titleMatch = fmMatch[1].match(/title:\s*["']?(.*?)["']?$/m)
-            if (titleMatch) groupTitle = titleMatch[1].trim()
-          }
-          if (groupTitle === folder) {
-            const h1Match = readmeContent.match(/^#\s+(.*)/m)
-            if (h1Match) groupTitle = h1Match[1].trim()
-          }
-        }
+      const targetTitle = target.toUpperCase() // Fallback
+      const subitems = []
+      
+      const vulns = fs.readdirSync(targetPath)
+      for (const vuln of vulns) {
+        const vulnPath = path.join(targetPath, vuln)
+        if (fs.statSync(vulnPath).isDirectory()) {
+          const files = fs.readdirSync(vulnPath)
+          for (const file of files) {
+            if (file.endsWith('.md') && file.toLowerCase() !== 'readme.md') {
+              const filePath = path.join(vulnPath, file)
+              const content = fs.readFileSync(filePath, 'utf-8').replace(/^\uFEFF/, '')
+              
+              const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
+              let title = ''
+              if (fmMatch) {
+                const titleMatch = fmMatch[1].match(/title:\s*["']?(.*?)["']?$/m)
+                if (titleMatch) title = titleMatch[1].trim()
+              }
+              if (!title) {
+                const h1Match = content.match(/^#\s+(.*)/m)
+                title = h1Match ? h1Match[1].trim() : file.replace('.md', '')
+              }
 
-        for (const file of files) {
-          if (file.endsWith('.md') && file.toLowerCase() !== 'readme.md') {
-            const filePath = path.join(folderPath, file)
-            const content = fs.readFileSync(filePath, 'utf-8').replace(/^\uFEFF/, '') // Fix BOM
-            
-            // 1. Try to get title from frontmatter
-            const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
-            let title = ''
-            if (fmMatch) {
-              const titleMatch = fmMatch[1].match(/title:\s*["']?(.*?)["']?$/m)
-              if (titleMatch) title = titleMatch[1].trim()
+              subitems.push({
+                text: `[${target}] ${title}`,
+                link: `/${baseDir}/${target}/${vuln}/${file.replace('.md', '')}`
+              })
             }
-            
-            // 2. Fallback to H1
-            if (!title) {
-              const h1Match = content.match(/^#\s+(.*)/m)
-              title = h1Match ? h1Match[1].trim() : file.replace('.md', '')
-            }
-
-            items.push({
-              text: title,
-              link: `/${baseDir}/${folder}/${file.replace('.md', '')}`
-            })
           }
         }
-        
-        if (items.length > 0) {
-          subGroups.push({
-            text: groupTitle,
-            collapsed: false,
-            items: items
-          })
-        }
+      }
+      
+      if (subitems.length > 0) {
+        targetGroups.push({
+          text: `🛡️ ${target.charAt(0).toUpperCase() + target.slice(1)} Target`,
+          collapsed: false,
+          items: subitems
+        })
       }
     }
 
-    // Sort subGroups alphabetically by title (text property)
-    subGroups.sort((a, b) => a.text.localeCompare(b.text, 'zh'))
-    categoryGroups.push(...subGroups)
+    targetGroups.sort((a, b) => a.text.localeCompare(b.text, 'zh'))
+    categoryGroups.push(...targetGroups)
   }
   
   return categoryGroups
@@ -94,7 +78,7 @@ export default defineConfig({
   title: "Awesome SRC Experience",
   description: "企业级 SRC 漏洞挖掘实战经验与自动化利器集合",
   base: '/Awesome-SRC-experience/',
-  
+  appearance: 'dark', // Force dark mode
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1' }],
