@@ -103,3 +103,19 @@
 .custom-block.tip .custom-block-title {
   color: var(--vp-c-brand-1);
 }
+
+/* ========================================================
+   4. Global Typography Fixes (Clipping Prevention)
+   ======================================================== */
+h1, h2, h3 {
+  line-height: 1.4 !important;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  margin-bottom: 0.5em;
+}
+
+.vp-doc h2 {
+  margin-top: 32px;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 24px;
+}

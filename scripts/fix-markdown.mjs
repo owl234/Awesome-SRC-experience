@@ -51,7 +51,7 @@ function fixMarkdownFile(filePath) {
     // We escape < to &lt; and > to &gt;
     const newSegment = segment.replace(/<([a-zA-Z][^>\s]*?)>/g, (match, tagName) => {
       // List of HTML tags we might actually WANT to allow in Markdown (rare in this repo)
-      const allowedTags = ['br', 'img', 'hr', 'a', 'span', 'div', 'p']; 
+      const allowedTags = ['br', 'img', 'hr', 'a', 'span', 'div', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'style', 'code', 'blockquote', 'section', 'article']; 
       if (allowedTags.includes(tagName.toLowerCase())) {
         return match;
       }

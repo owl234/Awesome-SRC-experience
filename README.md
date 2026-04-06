@@ -27,49 +27,49 @@
 ```mermaid
 mindmap
   root((Awesome SRC))
-    SRC实战经验
-      身份与访问控制
-        403页面绕过
-        后台提权
-      逻辑与输入注入
-        URL验证绕过
-        短信验证逻辑缺陷
-      架构与配置
-        Web服务配置错误
-        核心信息泄露
-    高效漏扫兵器谱
-      带外测试平台
+    🔍 SRC实战经验
+      🔐 身份与访问控制
+        403-bypass(403绕过)
+        admin-panels(管理页面)
+      💉 逻辑与注入
+        url-injection(URL注入)
+        sms-verification(短信验证码)
+      🌐 架构与配置
+        web-servers(Web服务器)
+        info-leak(敏感信息泄露)
+    🛠️ 自动化兵器
+      🛰️ 带外平台 (OOB)
         Interactsh
-      漏扫引擎与模板
+      🔭 漏扫利器 (Vuln)
         Nuclei
         afrog
-      自动化挖掘流
-        SQLMap
+      ⚡ 自动发现流
         Netlas结合
 ```
 
-1. **结构化的渗透思维**：每篇核心文章均配备实战复现步骤，帮你建立结构化的挖洞思维，拒绝碎片化学习。
-2. **高 ROI 的实战案例**：涵盖 403 页面绕过、URL 注入、Web服务器渗透、敏感信息泄露、逻辑漏洞等一线实战场景。
-3. **现代化的兵器谱**：收录并精讲 Nuclei, Interactsh, Netlas 等自动化漏扫和带外测试 (OOB) 利器。
+1. **结构化的渗透思维**：每篇核心文章均配备标准三段式结构，拒绝零散学习，塑造职业化挖洞路径。
+2. **高 ROI 的实战案例**：聚焦高频中大厂漏洞，涵盖 `403绕过`、`URL重定向`、`短信逻辑缺陷` 等真实战线经验。
+3. **现代化的兵器利刃**：深度整合 `Nuclei`, `Interactsh`, `Netlas` 等一线 SRC 专家使用的自动化与带外扫描能力。
 
 ---
 
-## 🗺️ 快速导航
+## 🗺️ 沉浸式快速导航
+- 📖 [**SRC 攻防实战 (Practical Experience)**](https://owl234.github.io/Awesome-SRC-experience/experience/README)
+- 🛠️ [**自动化利器 / 兵器谱 (Modern Tooling)**](https://owl234.github.io/Awesome-SRC-experience/tools/Readme)
 
-- 📖 **SRC 实战经验** -> [前往体验站沉浸式阅读](https://owl234.github.io/Awesome-SRC-experience/experience/)
-- 🛠️ **自动化利器/兵器谱** -> [掌握现代化扫洞工具](https://owl234.github.io/Awesome-SRC-experience/tools/)
-
-*(若你喜欢在 GitHub 原生界面阅读，请前往 [`docs/`](./docs) 目录下查阅最新的 Markdown 文档)*
+*(若您在 GitHub Web 端阅读，可进入 [`docs/`](./docs) 目录直接查阅 Markdown 本地源文件)*
 
 ## 🤝 贡献与极客共建
+我们推崇“分享是最好的学习”。为降低共建门槛，我们实现了**完全透明的知识流水线**：
 
-如果你有独到的 SRC 挖洞经验或者私藏的利器，欢迎提交 PR 参与共建！为降低协作摩擦并保持内容高质量标准，请参照以下流程：
+1. **0 配置索引**：只需将 Markdown 放到对应子目录下（如 `docs/experience/403-bypass/`），系统会在发布时**自动提取 H1 标题并填充侧边栏**。
+2. **标准模板**：点击 `New Issue` 即可看到预设的经验提交模板，帮助您快速输出标准化技术文档。
+3. **极简命名**：我们对物理文件树进行了重新建模（Slugified），确保护链持久且语义清晰。
 
-1. **使用官方模板**：请使用系统预设的 `.github/ISSUE_TEMPLATE` 提交（经验文档推荐包含“漏洞背景”、“原理复现”与“修复建议”三段式结构）。
-2. **脱敏处理**：在提交实战案例时，请务必将涉及企业真实系统名称、IP 或域名的部分进行打码脱敏。
-3. **自动建站索引**：你只需要将符合规范的文章 Markdown 文件放到 `docs/experience/` 对应的目录下，VitePress 引擎会在发布时**自动提取标题并构建侧边栏**，无需你再手动去碰任何 `config.mjs` 配置！
+[**🔥 立即提交你的第一篇 SRC 经验**](https://github.com/owl234/Awesome-SRC-experience/issues/new/choose)
 
-我们期待你的高质量分享！
+---
+*Powered by VitePress & Awesome Community · 让漏洞挖掘不再是“盲人摸象”*
 
 ## 📈 Star 增长曲线
 

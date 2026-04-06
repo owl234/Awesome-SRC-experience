@@ -7,7 +7,7 @@ function generateSidebar(baseDir, rootTitle) {
   const fullRoot = path.join(process.cwd(), 'docs', baseDir)
   const categoryGroups = []
 
-  // Add the "Overview" page first if it exists
+  // Add the "Overview" page first
   const rootReadme = path.join(fullRoot, 'README.md')
   const rootReadmeAlt = path.join(fullRoot, 'Readme.md')
   if (fs.existsSync(rootReadme) || fs.existsSync(rootReadmeAlt)) {
@@ -19,18 +19,37 @@ function generateSidebar(baseDir, rootTitle) {
 
   if (fs.existsSync(fullRoot)) {
     const folders = fs.readdirSync(fullRoot)
+    const subGroups = []
+
     for (const folder of folders) {
-      if (folder === '.DS_Store' || folder.endsWith('.md') || folder === 'img') continue
+      if (folder === '.DS_Store' || folder.endsWith('.md') || folder === 'img' || folder === 'public') continue
       
       const folderPath = path.join(fullRoot, folder)
       if (fs.statSync(folderPath).isDirectory()) {
         const files = fs.readdirSync(folderPath)
         const items = []
+        let groupTitle = folder // Fallback
         
+        // Try to get group title from folder's README.md
+        const folderReadme = files.find(f => f.toLowerCase() === 'readme.md')
+        if (folderReadme) {
+          const readmePath = path.join(folderPath, folderReadme)
+          const readmeContent = fs.readFileSync(readmePath, 'utf-8').replace(/^\uFEFF/, '')
+          const fmMatch = readmeContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
+          if (fmMatch) {
+            const titleMatch = fmMatch[1].match(/title:\s*["']?(.*?)["']?$/m)
+            if (titleMatch) groupTitle = titleMatch[1].trim()
+          }
+          if (groupTitle === folder) {
+            const h1Match = readmeContent.match(/^#\s+(.*)/m)
+            if (h1Match) groupTitle = h1Match[1].trim()
+          }
+        }
+
         for (const file of files) {
           if (file.endsWith('.md') && file.toLowerCase() !== 'readme.md') {
             const filePath = path.join(folderPath, file)
-            const content = fs.readFileSync(filePath, 'utf-8')
+            const content = fs.readFileSync(filePath, 'utf-8').replace(/^\uFEFF/, '') // Fix BOM
             
             // 1. Try to get title from frontmatter
             const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/)
@@ -42,7 +61,7 @@ function generateSidebar(baseDir, rootTitle) {
             
             // 2. Fallback to H1
             if (!title) {
-              const h1Match = content.replace(/\uFEFF/g, '').match(/^#\s+(.*)/m)
+              const h1Match = content.match(/^#\s+(.*)/m)
               title = h1Match ? h1Match[1].trim() : file.replace('.md', '')
             }
 
@@ -54,14 +73,18 @@ function generateSidebar(baseDir, rootTitle) {
         }
         
         if (items.length > 0) {
-          categoryGroups.push({
-            text: folder,
+          subGroups.push({
+            text: groupTitle,
             collapsed: false,
             items: items
           })
         }
       }
     }
+
+    // Sort subGroups alphabetically by title (text property)
+    subGroups.sort((a, b) => a.text.localeCompare(b.text, 'zh'))
+    categoryGroups.push(...subGroups)
   }
   
   return categoryGroups
