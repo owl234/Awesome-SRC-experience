@@ -33,13 +33,14 @@ tools: [terminal, file_system, web_search]
 - **共建摩擦力:** 是否缺少标准化的 issue 和 PR 模板（如：规定提交新 SRC 经验必须包含“漏洞原理、复现步骤、修复建议”三段式）？
 **输出要求:** 详细列出这 2-3 个改进点，并解释这些改动将如何触发受众的“收藏/Star”冲动。
 
-### 步骤 3: 目录重构与文档工程验证 (Execution & Engineering Validation)
-**动作:** 针对步骤 2，生成具体的 README 结构改造方案、目录重命名建议，或提供自动化构建文档的 GitHub Actions 配置文件（YAML）。
+### 步骤 3: 目录重构与文档工程闭环 (Execution & Engineering Validation)
+**动作:** 针对步骤 2，生成具体的 README 结构改造方案、目录重命名建议，并最终实现“0动作”贡献体验。
 **强制校验（自我反思机制）:**
-1. **检索效率提升:** 这个目录结构的调整，是否让一个正在打比赛/挖漏洞的研究员少点两次鼠标？
-2. **社区扩展性:** 如果未来新增了 100 篇经验文章，这个结构会崩溃吗？
-3. **影响力闭环:** README 头部的 Badges（如构建状态、贡献者统计）和引言，是否瞬间拉满了这个项目的“权威感”？
-**输出要求:** 提供重构后的文件结构设计、README 核心骨架，并附带针对上述问题的“文档工程师自白”。
+1. **自动侧边栏（Dynamic Sidebar Generation）:** 强烈建议极力避免要求贡献者手动去配置 `config.mjs`。你可以直接在 `config.mjs` 中编写 Node.js `fs` 脚本，动态扫描物理目录结构并利用正则抽提 Markdown 文件的 H1 标题作为侧边栏的展示名称。这可以利用代码机制彻底“清零贡献摩擦力”，甚至不需要为此去写污染 git history 的 Github Action。
+2. **检索效率提升:** 这个目录结构的调整，是否让一个正在打比赛/挖漏洞的研究员少点两次鼠标？
+3. **社区扩展性:** 如果未来新增了 100 篇经验文章，这个结构会崩溃吗？
+4. **影响力闭环:** README 头部的 Badges（如构建状态、贡献者统计）和引言，是否瞬间拉满了这个项目的“权威感”？
+**输出要求:** 提供重构后的文件结构设计、动态侧边栏的实现代码，并附带针对上述问题的“文档工程师自白”。
 
 ### 步骤 4: 静态站构建避坑守则 (Build Pitfalls Prevention)
 **动作:** 在将大量安全技术 Markdown 归档为 VitePress 等前端静态站点时，必须防范内容与解析器发生的语法碰撞。若遇到构建失败 (`build error`)，请参考下述守则：
@@ -58,4 +59,6 @@ tools: [terminal, file_system, web_search]
    - **防御手段:** 凡是不绑定顶级自定义域名的仓库型内嵌 Pages，必须在初始化前端框架的第一时间确认注入由斜杠包裹的 `base` 参数。
 7. **CI/CD 构建环境衰退阻止发布 (Node Runner Deprecation):** GitHub 已经硬性废弃了底层依赖 Node.js 16 运行时的老旧 Actions 容器（例如 `actions/upload-pages-artifact@v2`）。盲目沿用过去的 `deploy.yml` CI流水线模板，会遭遇底层的 `Deprecated version` 拦截报错。
    - **防御手段:** 初始化流水线时主动审查插件版本号，确保将 `checkout`、`setup-node`、`deploy-pages` 和 `upload-pages-artifact` 核心编排件升级至支持 Node.js 20+ 的 `@v3` 和 `@v4` 版本。
+8. **BOM 幽灵字符致盲节点扫描 (Regex Anchor Failure):** 当我们在执行前文提到的“使用 `fs` 动态提取 Markdown 文件的 `# 标题` 用作侧边栏”策略时，部分由 Windows 系统或某些编辑器默认创建的 UTF-8 文件会在最顶层隐匿抛入 `\uFEFF` (Byte Order Mark) 首字节。这将导致 `^# ` 这样的完美提取正则，硬生生与位于第一行的真正标题“擦肩而过”。
+   - **防御手段:** 任何从动态读取流中通过正则 `^` anchor 提取文件行首信息的逻辑，必须先进行强制去首位宽字符清洗：`content.replace(/^\uFEFF/, '').match(/^#\s+(.*)/m)`。
 

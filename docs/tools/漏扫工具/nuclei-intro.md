@@ -127,7 +127,7 @@ https://nuclei-templates.netlify.app/
 
 ### 速率限制
 
-可以使用`-rlm <int>` 选项以每分钟请求数的形式指定速率限制。
+可以使用`-rlm &lt;int&gt;` 选项以每分钟请求数的形式指定速率限制。
 
 ```bash
 nuclei -u http://techyrick.com/ -rl 3 -c 2
