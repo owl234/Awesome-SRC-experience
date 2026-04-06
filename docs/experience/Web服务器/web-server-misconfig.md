@@ -1,3 +1,8 @@
+---
+title: "Tomcat 渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE"
+description: "Awesome SRC Experience - Tomcat 渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE"
+---
+
 
 
 # Tomcat 渗透测试：利用Apache Struts2 S2-016(CVE-2013-2251) 漏洞获得RCE
@@ -91,3 +96,12 @@ dirsearch -u <http://x.x.x.x:8333> -w ~/wordlist/OnelistForAll/onelistforallshor
 - 最受欢迎的开源漏扫工具：[nuclei](https://github.com/projectdiscovery/nuclei)
 - Web安全测试神器：[Burp suite](https://portswigger.net/burp)
 
+
+
+## 复现步骤
+
+(待完善)
+
+## 修复建议
+
+(待完善)

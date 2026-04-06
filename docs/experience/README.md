@@ -1,4 +1,9 @@
-﻿# 一些好用的SRC漏洞挖掘经验
+---
+title: "一些好用的SRC漏洞挖掘经验"
+description: "Awesome SRC Experience - 一些好用的SRC漏洞挖掘经验"
+---
+
+# 一些好用的SRC漏洞挖掘经验
 
 按照漏洞类型或漏洞产生点，将漏洞测试文章分类。
 

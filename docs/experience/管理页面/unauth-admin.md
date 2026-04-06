@@ -1,4 +1,9 @@
-﻿# 子域名模糊测试：管理页面前端验证绕过拿下SQL，升级RCE
+---
+title: "子域名模糊测试：管理页面前端验证绕过拿下SQL，升级RCE"
+description: "Awesome SRC Experience - 子域名模糊测试：管理页面前端验证绕过拿下SQL，升级RCE"
+---
+
+# 子域名模糊测试：管理页面前端验证绕过拿下SQL，升级RCE
 
 该文章的作者是**Abdullah Nawaf**，全职漏洞赏金猎人，在BugCrowd中排名前50，P1漏洞排名第11。
 

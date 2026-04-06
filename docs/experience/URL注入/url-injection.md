@@ -1,4 +1,9 @@
-﻿# URL注入：通过跨站脚本 (XSS) 发现账户劫持 (ATO) 漏洞
+---
+title: "URL注入：通过跨站脚本 (XSS) 发现账户劫持 (ATO) 漏洞"
+description: "Awesome SRC Experience - URL注入：通过跨站脚本 (XSS) 发现账户劫持 (ATO) 漏洞"
+---
+
+# URL注入：通过跨站脚本 (XSS) 发现账户劫持 (ATO) 漏洞
 
 在寻找一个拥有数百万用户的程序时，我特别关注了一个大型博客网站，这里姑且称之为 `redacted.com`。我首先对其子域名进行了枚举。我发现的一个子域名是 `jp.redacted.com`。
 
@@ -32,7 +37,7 @@ param spider -d jp.redacted.com -s
 
 
 
-### 使用的工具：
+::: tip 🛠️ 使用的工具
 
 **Param Spider：** Param Spider 是一款强大的工具，专门用于从 **Wayback Machine** 等网络存档中挖掘有价值的 URL，以支持进一步的渗透测试工作，如漏洞挖掘、模糊测试等。
 

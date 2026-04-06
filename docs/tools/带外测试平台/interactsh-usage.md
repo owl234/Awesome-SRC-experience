@@ -1,4 +1,9 @@
-﻿# 使用 Interact.sh 进行带外测试 (OAST)
+---
+title: "使用 Interact.sh 进行带外测试 (OAST)"
+description: "Awesome SRC Experience - 使用 Interact.sh 进行带外测试 (OAST)"
+---
+
+# 使用 Interact.sh 进行带外测试 (OAST)
 
 Interactsh是一个开源工具，用于检测带外交互。它专门设计用于发现那些会导致系统与外部产生联系的漏洞。在红队演练中，interactsh也是一个非常有价值的工具，安全专业人员可以利用它模拟真实的网络攻击，以识别目标组织安全防御中的弱点。
 

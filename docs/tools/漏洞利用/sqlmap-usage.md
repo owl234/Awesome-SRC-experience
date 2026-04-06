@@ -1,3 +1,8 @@
+---
+title: "SQLMap 自动化注入"
+description: "Awesome SRC Experience - SQLMap 自动化注入"
+---
+
 # SQLMap 自动化注入
 
 本文档目前为占位文件，即将补充 SQLMap 实战自动化注入相关的核心 Payload 与利用经验。

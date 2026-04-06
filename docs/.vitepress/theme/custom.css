@@ -1,101 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
 /* ========================================================
-   1. VitePress 变量重写 (Colors & Globals)
+   1. VitePress 变量重写 (Cyberpunk Purple Theme)
    ======================================================== */
 :root {
-  /* 定制标题渐变色，呼应右侧的蓝紫赛博风 */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #a18cd1 30%, #fbc2eb);
+  /* Core Colors - Deep Cyberpunk Purple Palette */
+  --vp-c-brand-1: #9d4edd;
+  --vp-c-brand-2: #7b2cbf;
+  --vp-c-brand-3: #5a189a;
+  --vp-c-brand-soft: rgba(157, 78, 221, 0.14);
 
-  /* 为了体现深邃感，把默认那个巨大模糊的色块抹掉或减弱 */
-  --vp-home-hero-image-background-image: none;
-  --vp-home-hero-image-filter: none;
+  /* Typography */
+  --vp-font-family-base: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  /* Home Hero */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #e0aaff 10%, #9d4edd 50%, #5a189a 90%);
+  
+  /* Layout */
+  --vp-layout-max-width: 1440px;
+}
+
+/* Dark Mode Specifics */
+.dark {
+  --vp-c-bg: #0d0d12;
+  --vp-c-bg-soft: #16161e;
+  --vp-c-bg-mute: #1a1b26;
+  --vp-sidebar-bg-color: rgba(13, 13, 18, 0.7);
+  --vp-nav-bg-color: rgba(13, 13, 18, 0.7);
 }
 
 /* ========================================================
-   2. 首页排版调整 (Layout & Proportions)
+   2. Glassmorphism & Premium UI FX
+   ======================================================== */
+
+/* Sidebar Glassmorphism */
+@media (min-width: 960px) {
+  .VPSidebar {
+    backdrop-filter: blur(12px) saturate(180%);
+    background-color: var(--vp-sidebar-bg-color) !important;
+    border-right: 1px solid rgba(157, 78, 221, 0.1);
+  }
+}
+
+/* Nav Glassmorphism */
+.VPNav {
+  backdrop-filter: blur(8px);
+  background-color: var(--vp-nav-bg-color) !important;
+  border-bottom: 1px solid rgba(157, 78, 221, 0.1) !important;
+}
+
+/* Card Hover Animations */
+.VPFeature {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 1px solid transparent !important;
+  background-color: var(--vp-c-bg-soft) !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+  background-color: var(--vp-c-bg-mute) !important;
+}
+
+/* ========================================================
+   3. Home Page Layout & Hero FX
    ======================================================== */
 @media (min-width: 960px) {
-
-  /* 拓宽中间核心容器，让整体排版像截图一样大气舒展 */
   .VPHero .container {
-    max-width: 1400px !important;
-  }
-
-  .VPHero .main {
-    flex: 1;
-  }
-
-  .VPHero .image {
-    flex: 1.3;
-    /* 给左侧留下更多呼吸空间，宽度窄一些符合审美 */
+    max-width: 1200px !important;
+    padding: 64px 32px !important;
   }
 }
 
-/* ========================================================
-   3. 边缘融合 (Edge Blending) 与 视觉包裹
-   ======================================================== */
+/* Hero Image Glow & Animation */
 .VPHero .image-src,
 .VPHero .VPImage {
-  /* 更柔和的遮罩，保证图元不被过分切割 */
-  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
-
-  /* 增加氛围光 (Ambient Glow) */
-  filter: drop-shadow(0 0 50px rgba(161, 140, 209, 0.4)) drop-shadow(0 0 20px rgba(79, 172, 254, 0.5));
-
-  /* 动态悬浮 (Floating Animation) */
-  animation: floating 4s ease-in-out infinite;
-
-  position: relative;
-  z-index: 2;
-  /* 宽度适度收敛，位置略微偏上，获得最佳视觉比例 */
-  width: 80%;
-  margin-left: -80%;
-  margin-top: -360px;
-  /* 让图片向上浮动一些 */
-  max-width: none !important;
+  filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.5)) drop-shadow(0 0 10px rgba(224, 170, 255, 0.3));
+  animation: floating 6s ease-in-out infinite;
+  border-radius: 20px;
 }
 
-/* 恢复星云背景并微调 */
-.VPHero .image-bg {
-  display: block !important;
-  opacity: 0.3 !important;
-  margin-top: -30px;
-}
-
-/* 关键帧动画定义：基准位移提升，并平缓悬浮 */
 @keyframes floating {
-  0% {
-    transform: translateY(0px) scale(1.1) translateX(0);
-  }
-
-  50% {
-    transform: translateY(-15px) scale(1.1) translateX(0);
-  }
-
-  100% {
-    transform: translateY(0px) scale(1.1) translateX(0);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-20px) rotate(1deg) scale(1.02); }
 }
 
-/* 小屏幕适配补丁 */
-@media (max-width: 959px) {
-  @keyframes floating {
-    0% {
-      transform: translateY(0px);
-    }
+/* Selection Color */
+::selection {
+  background: var(--vp-c-brand-1);
+  color: white;
+}
 
-    50% {
-      transform: translateY(-15px);
-    }
+/* Custom Containers Enhancement */
+.custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+}
 
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  .VPHero .image-src,
-  .VPHero .VPImage {
-    transform: none;
-  }
+.custom-block.tip .custom-block-title {
+  color: var(--vp-c-brand-1);
 }

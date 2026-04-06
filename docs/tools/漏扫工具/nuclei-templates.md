@@ -1,3 +1,8 @@
+---
+title: "Nuclei：如何快速构建自己的Nuclei模板"
+description: "Awesome SRC Experience - Nuclei：如何快速构建自己的Nuclei模板"
+---
+
 # Nuclei：如何快速构建自己的Nuclei模板
 
 > 此文章将深入讨论论如何创建独特的nuclei模板！不要错过，我会展示三种简单的方法来构建你自己的Nuclei模板！让我们增加你赢得赏金的机会！

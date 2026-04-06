@@ -1,3 +1,8 @@
+---
+title: "管理页面渗透测试经验"
+description: "Awesome SRC Experience - 管理页面渗透测试经验"
+---
+
 # 管理页面渗透测试经验
 
 ## 文章漏洞测试流程图

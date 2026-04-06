@@ -1,3 +1,8 @@
+---
+title: "Metasploit 入门"
+description: "Awesome SRC Experience - Metasploit 入门"
+---
+
 # Metasploit 入门
 
 Metasploit 是一个非常强大的渗透测试框架。本篇初学者指南将引导你完成Metasploit入门的关键步骤，从安装到进行第一个渗透测试任务。我会详细的记录漏洞利用的每一步，同时解释基本概念和理论。
