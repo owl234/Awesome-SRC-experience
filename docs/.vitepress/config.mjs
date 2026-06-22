@@ -101,6 +101,7 @@ function generateSidebar(baseDir, rootTitle) {
 export default defineConfig({
   title: "Awesome SRC Experience",
   description: "企业级 SRC 漏洞挖掘实战经验与自动化利器集合",
+  appearance: 'light',
   base: '/Awesome-SRC-experience/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
