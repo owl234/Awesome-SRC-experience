@@ -1,4 +1,27 @@
-.agent/
-.env
-.skill.md
+# Dependencies
 node_modules/
+
+# VitePress
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+.temp/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment and Agents
+.env
+.agent/
+.skill.md

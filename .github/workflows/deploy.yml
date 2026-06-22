@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -28,6 +28,13 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
+      - name: Format Markdown (zhlint + Prettier)
+        run: npm run format
+      - name: Auto Commit Formatted Code
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: 自动修复 Markdown 中英文排版 (Bot)"
+          file_pattern: "docs/**/*.md README.md"
       - name: Prep Markdown for VitePress
         run: npm run docs:fix
       - name: Build with VitePress

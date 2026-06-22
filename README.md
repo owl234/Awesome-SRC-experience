@@ -10,67 +10,86 @@
 <img src="https://img.shields.io/github/last-commit/owl234/Awesome-SRC-experience" alt="Last Commit">
 <a href="https://github.com/owl234/Awesome-SRC-experience"><img src="https://img.shields.io/github/stars/owl234/Awesome-SRC-experience?style=social" alt="Stars"></a>
 
-**让漏洞挖掘不再是“盲人摸象”**
+**让漏洞挖掘不再是“盲人摸象”。**
 
-[**👉 点击访问官方沉浸式文档站 (VitePress 全新驱动)**](https://owl234.github.io/Awesome-SRC-experience/)
+[**👉 访问官方文档站**](https://owl234.github.io/Awesome-SRC-experience/)
 
 </div>
 
 ---
 
-**Awesome SRC Experience** 是一个专注于国内外 SRC (安全应急响应中心) 漏洞挖掘的实战经验、核心知识与高效工具合集。采用现代化的 VitePress 架构，支持全局搜索与暗黑模式，提供极致的阅读和检索体验。
+专注于 SRC 漏洞挖掘的现代实战知识库。基于 VitePress 构建，追求极致的阅读与检索体验。
 
-## 🎯 核心能力与拓扑架构
+- **定位**：面向实战的白帽子工程化漏洞体系。
+- **愿景**：打破信息壁垒，让漏洞挖掘从“黑盒试探”走向“降维打击”。
 
-本知识库主要围绕**实战漏挖**与**自动化兵器**展开：
+## 🎯 核心图谱
+
+摒弃散装笔记，构建“教科书级”漏洞族谱：
 
 ```mermaid
 mindmap
   root((Awesome SRC))
-    🔍 SRC实战经验
-      🔐 身份与访问控制
-        403-bypass(403绕过)
-        admin-panels(管理页面)
-      💉 逻辑与注入
-        url-injection(URL注入)
-        sms-verification(短信验证码)
-      🌐 架构与配置
-        web-servers(Web服务器)
-        info-leak(敏感信息泄露)
-    🛠️ 自动化兵器
-      🛰️ 带外平台 (OOB)
-        Interactsh
-      🔭 漏扫利器 (Vuln)
-        Nuclei
-        afrog
-      ⚡ 自动发现流
-        Netlas结合
+    🔍 实战经验区
+      🌐 Web 攻防
+        access-control(权限控制)
+        logic-flaw(业务逻辑)
+        rce(代码执行)
+        xss(客户端攻击)
+      ☁️ 基础设施
+        web-servers(Web 容器)
+        info-leak(数据泄露)
+      📡 终端与 IoT
+    🛠️ 自动化兵器谱
+      🔭 漏扫引擎 (Vuln)
+      🛰️ 带外探测 (OOB)
+      ⚡ 资产发现流
 ```
 
-1. **结构化的渗透思维**：每篇核心文章均配备标准三段式结构，拒绝零散学习，塑造职业化挖洞路径。
-2. **高 ROI 的实战案例**：聚焦高频中大厂漏洞，涵盖 `403绕过`、`URL重定向`、`短信逻辑缺陷` 等真实战线经验。
-3. **现代化的兵器利刃**：深度整合 `Nuclei`, `Interactsh`, `Netlas` 等一线 SRC 专家使用的自动化与带外扫描能力。
+- **实战闭环**：背景 -> 攻坚 -> 自动化。
+- **高 ROI 案例**：聚焦核心业务，从边界突破到云原生基础设施。
+- **现代化兵器**：深度整合一线自动化生产力工具。
 
 ---
 
-## 🗺️ 沉浸式快速导航
-- 📖 [**SRC 攻防实战 (Practical Experience)**](https://owl234.github.io/Awesome-SRC-experience/experience/README)
-- 🛠️ [**自动化利器 / 兵器谱 (Modern Tooling)**](https://owl234.github.io/Awesome-SRC-experience/tools/Readme)
+## 🗺️ 快速导航
 
-*(若您在 GitHub Web 端阅读，可进入 [`docs/`](./docs) 目录直接查阅 Markdown 本地源文件)*
+- 📖 [**SRC 攻防实战**](https://owl234.github.io/Awesome-SRC-experience/experience/README)
+- 🛠️ [**自动化兵器谱**](https://owl234.github.io/Awesome-SRC-experience/tools/Readme)
 
-## 🤝 贡献与极客共建
-我们推崇“分享是最好的学习”。为降低共建门槛，我们实现了**完全透明的知识流水线**：
+## 🛠️ 无服务器架构流转
 
-1. **0 配置索引**：只需将 Markdown 放到对应子目录下（如 `docs/experience/403-bypass/`），系统会在发布时**自动提取 H1 标题并填充侧边栏**。
-2. **标准模板**：点击 `New Issue` 即可看到预设的经验提交模板，帮助您快速输出标准化技术文档。
-3. **极简命名**：我们对物理文件树进行了重新建模（Slugified），确保护链持久且语义清晰。
+坚持“零配置、无后端”的极简工程学：
 
-[**🔥 立即提交你的第一篇 SRC 经验**](https://github.com/owl234/Awesome-SRC-experience/issues/new/choose)
+- **渲染引擎**: VitePress (毫秒级路由热刷新)。
+- **路由引擎**: Node.js AST 拦截，自动提取 Title 生成无限级侧边栏。
+- **排版引擎**: Prettier + zhlint，拦截并修复中英文混排空格。
+- **部署管道**: GitHub Actions CI/CD 流水线。
+
+```mermaid
+graph LR
+    A[贡献者] -->|1. Web IDE 编写 Markdown| B(GitHub 仓库)
+    B -->|2. 发起 PR| C[主理人 Review]
+    C -->|3. 合并分支| D{GitHub Actions}
+    D -->|4a. Bot 自动排版并回写| E[zhlint + Prettier]
+    D -->|4b. 提取路由构建静态页| F[VitePress]
+    E -.-> F
+    F -->|5. 秒级部署| G[(GitHub Pages)]
+
+    style B fill:#24292e,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#2088FF,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#2ea44f,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+## 🤝 沉浸式共建
+
+无需克隆代码到本地，打破所有参与门槛：
+
+1. **一键 Web IDE**：点击页面「参与共建」，浏览器秒开原生编辑器。
+2. **零心智负担**：你只管写。保存后，底层引擎会自动接管排版格式化与路由更新。
+
+[**👉 立即提交战报**](https://owl234.github.io/Awesome-SRC-experience/contribute)
 
 ---
-*Powered by VitePress & Awesome Community · 让漏洞挖掘不再是“盲人摸象”*
-
-## 📈 Star 增长曲线
 
 [![Star History Chart](https://api.star-history.com/svg?repos=owl234/Awesome-SRC-experience&type=Date)](https://star-history.com/#owl234/Awesome-SRC-experience&Date)

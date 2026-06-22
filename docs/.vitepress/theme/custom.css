@@ -1,137 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* ========================================================
-   1. Hacker/Cyber Theme Core Variables
-   ======================================================== */
 :root {
-  /* Neon Accents */
-  --cyber-neon-purple: #9d4edd;
-  --cyber-neon-green: #39ff14;
-  --cyber-neon-blue: #00d4ff;
-  
-  --vp-c-brand-1: var(--cyber-neon-purple);
-  --vp-c-brand-2: #7b2cbf;
-  --vp-c-brand-3: #5a189a;
-  --vp-c-brand-soft: rgba(157, 78, 221, 0.1);
+  /* Typography - 采用苹果风格的无衬线与等宽字体 */
+  --vp-font-family-base: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Typography */
-  --vp-font-family-base: 'Outfit', 'Inter', sans-serif;
-  --vp-font-family-mono: 'JetBrains Mono', monospace;
-
-  /* Home Hero Accents */
+  /* 首页大标题的高级渐变色 */
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, var(--cyber-neon-purple) 0%, var(--cyber-neon-green) 100%);
-  
-  /* Backgrounds (Forced Dark) */
-  --vp-c-bg: #050505;
-  --vp-c-bg-soft: #0a0a0f;
-  --vp-c-bg-mute: #12121a;
-  
-  --vp-sidebar-bg-color: rgba(5, 5, 5, 0.85);
-  --vp-nav-bg-color: rgba(5, 5, 5, 0.85);
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-3) 100%);
 }
 
-/* ========================================================
-   2. Layout & Glassmorphism
-   ======================================================== */
-.VPNav {
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(57, 255, 20, 0.1) !important;
-}
-
-.VPSidebar {
-  backdrop-filter: blur(12px);
-  border-right: 1px solid rgba(157, 78, 221, 0.1) !important;
-}
-
-/* ========================================================
-   3. Cyberpunk UI Elements
-   ======================================================== */
-
-/* Neon Border for Cards */
+/* 特性卡片的平滑悬浮效果 */
 .VPFeature {
-  background-color: #0d0d14 !important;
-  border: 1px solid rgba(157, 78, 221, 0.2) !important;
-  transition: all 0.3s ease !important;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  border-radius: 16px !important;
 }
 
 .VPFeature:hover {
-  border-color: var(--cyber-neon-green) !important;
-  box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
-.VPFeature::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyber-neon-purple), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
+.dark .VPFeature:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
 }
 
-.VPFeature:hover::after {
-  opacity: 1;
-}
-
-/* Sidebar Active Link Neon Green */
-.VPSidebarItem.level-1.active > .item > .link > .text,
-.VPSidebarItem.level-2.active > .item > .link > .text {
-  color: var(--cyber-neon-green) !important;
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-}
-
-/* Button Glow */
-.VPButton.brand {
-  background-color: var(--cyber-neon-purple) !important;
-  box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
-  border: none !important;
-}
-
-.VPButton.brand:hover {
-  background-color: #7b2cbf !important;
-  box-shadow: 0 0 25px rgba(157, 78, 221, 0.6);
-}
-
-/* ========================================================
-   4. Code Block & Markdown Enhancements
-   ======================================================== */
-.vp-doc code {
-  color: var(--cyber-neon-green) !important;
-  background-color: rgba(57, 255, 20, 0.05) !important;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.vp-doc pre {
-  border: 1px solid rgba(157, 78, 221, 0.2);
-  background-color: #08080c !important;
-}
-
-/* Custom Block Tips with Green */
-.custom-block.tip {
-  border-color: var(--cyber-neon-green) !important;
-  background-color: rgba(57, 255, 20, 0.05) !important;
-}
-
-.custom-block.tip .custom-block-title {
-  color: var(--cyber-neon-green) !important;
-}
-
-/* Scrollbar Hacker Style */
+/* 优雅的滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 10px;
+  background: var(--vp-c-divider);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cyber-neon-purple);
+  background: var(--vp-c-text-3);
 }

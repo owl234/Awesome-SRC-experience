@@ -1,15 +1,15 @@
 ---
-title: "Replace with Tool Name"
+title: 'Replace with Tool Name'
 description: "A short, impactful description of the tool's core functionality."
-category: "e.g., Recon, Exploration, Automation"
-author: "Name of the Author/Developer"
+category: 'e.g., Recon, Exploration, Automation'
+author: 'Name of the Author/Developer'
 github: "URL to the Tool's GitHub Repository"
 ---
 
 # 🛠️ [Tool Name]: [Elevator Pitch]
 
-> [!TIP]
-> **适用场景**: [Describe the most efficient use-case for this tool.]
+> [！TIP]
+> **适用场景**：[Describe the most efficient use-case for this tool。]
 
 ## 🚀 简介 (Introduction)
 
@@ -37,4 +37,5 @@ tool search example.com --deep
 ```
 
 ---
-*Note: Always use responsibly and in compliance with authorized environments.*
+
+_Note: Always use responsibly and in compliance with authorized environments._

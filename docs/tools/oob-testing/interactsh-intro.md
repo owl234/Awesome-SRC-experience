@@ -1,39 +1,39 @@
 ---
-title: "interact.sh 介绍"
-description: "Awesome SRC Experience - interact.sh 介绍"
+title: 'interact.sh 介绍'
+description: 'Awesome SRC Experience - interact.sh 介绍'
 ---
 
 # interact.sh 介绍
 
-> Interactsh是一个开源工具，用于检测带外交互。它专门设计用来发现那些会导致系统与外部产生联系的漏洞。
+> Interactsh 是一个开源工具，用于检测带外交互。它专门设计用来发现那些会导致系统与外部产生联系的漏洞。
 
 ## 主要功能
 
-- 多协议交互：支持DNS、HTTP（S）、SMTP（S）、LDAP等多种协议的交互，能够检测各种类型的漏洞。
-- 多客户端支持：提供CLI、Web、Burp、ZAP、Docker等多种客户端，方便用户集成到不同的工作流程中。
-- AES加密与零日志：采用AES加密，保护数据隐私，且不记录任何日志，确保用户数据的安全性。
-- 自动ACME证书：支持基于ACME协议的通配符TLS证书自动生成和续签，方便部署。
-- 云元数据服务DNS记录：支持云元数据服务创建DNS记录，便于在云环境中使用。
-- 动态HTTP响应控制：可以自定义HTTP响应内容，灵活应对不同的测试场景。
-- 自托管Interactsh服务器：支持将Interactsh部署在自己的服务器上，实现完全的控制。
+- 多协议交互：支持 DNS、HTTP (S)、SMTP (S)、LDAP 等多种协议的交互，能够检测各种类型的漏洞。
+- 多客户端支持：提供 CLI、Web、Burp、ZAP、Docker 等多种客户端，方便用户集成到不同的工作流程中。
+- AES 加密与零日志：采用 AES 加密，保护数据隐私，且不记录任何日志，确保用户数据的安全性。
+- 自动 ACME 证书：支持基于 ACME 协议的通配符 TLS 证书自动生成和续签，方便部署。
+- 云元数据服务 DNS 记录：支持云元数据服务创建 DNS 记录，便于在云环境中使用。
+- 动态 HTTP 响应控制：可以自定义 HTTP 响应内容，灵活应对不同的测试场景。
+- 自托管 Interactsh 服务器：支持将 Interactsh 部署在自己的服务器上，实现完全的控制。
 - 多域名支持：自托管版本支持多个域名，方便管理不同的项目。
-- NLTM/SMB/FTP(S/RESPONDER监听器：自托管版本支持多种协议的监听器，扩展了检测范围。
+- NLTM/SMB/FTP(S/RESPONDER 监听器：自托管版本支持多种协议的监听器，扩展了检测范围。
 - 通配符与保护交互：自托管版本支持通配符和保护交互，提高了灵活性。
 - 自定义索引与文件托管：自托管版本支持自定义索引和文件托管，方便进行定制化开发。
 - 自定义有效载荷长度：自托管版本支持自定义有效载荷长度，适应不同的测试需求。
-- 自定义SSL证书：自托管版本支持自定义SSL证书，增强安全性。
+- 自定义 SSL 证书：自托管版本支持自定义 SSL 证书，增强安全性。
 
 ## Interactsh 客户端
 
 ## 用法
 
-``` bash
+```bash
 interactsh-client -h
 ```
 
 该命令将显示工具的帮助信息，以下列出了所有支持的选项：
 
-``` bash
+```bash
 Usage:
   ./interactsh-client [flags]
 
@@ -43,7 +43,7 @@ INPUT:
    # 指定要使用的Interactsh服务器（默认："oast.pro,oast.live,oast.site,oast.online,oast.fun,oast.me"）
 
 CONFIG:
-   -config string                           flag configuration file (default "$HOME/.config/interactsh-client/config.yaml") 
+   -config string                           flag configuration file (default "$HOME/.config/interactsh-client/config.yaml")
    #指定配置文件路径（默认："$HOME/.config/interactsh-client/config.yaml"
    -n, -number int                          number of interactsh payload to generate (default 1)
    #  生成Interactsh有效载荷的数量（默认1）
@@ -70,7 +70,7 @@ FILTER:
 UPDATE:
    -up, -update                 update interactsh-client to latest version # 更新interactsh-client到最新版本
    -duc, -disable-update-check  disable automatic interactsh-client update check #禁用自动检查interactsh-client更新
-   
+
 OUTPUT:
    -o string                         output file to write interaction data # 指定输出文件，用于写入交互数据
    -json                             write output in JSONL(ines) format # 以JSONL格式写入输出
@@ -85,21 +85,21 @@ DEBUG:
 
 ## Interactsh 命令行客户端
 
-Interactsh命令行客户端需要 go1.20+ 版本以上的Go语言环境才能成功安装。运行以下命令获取代码仓库
+Interactsh 命令行客户端需要 go1.20+ 版本以上的 Go 语言环境才能成功安装。运行以下命令获取代码仓库
 
-``` bash
+```bash
 go install -v github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest
 ```
 
 ### 默认运行
 
-这将生成一个独特的有效载荷，可用于OOB测试，并且在输出中包含最少的交互信息。
+这将生成一个独特的有效载荷，可用于 OOB 测试，并且在输出中包含最少的交互信息。
 
-``` bash
+```bash
 interactsh-client
 
-    _       __                       __       __  
-   (_)___  / /____  _________ ______/ /______/ /_ 
+    _       __                       __       __
+   (_)___  / /____  _________ ______/ /______/ /_
   / / __ \/ __/ _ \/ ___/ __ '/ ___/ __/ ___/ __ \
  / / / / / /_/  __/ /  / /_/ / /__/ /_(__  ) / / /
 /_/_/ /_/\__/\___/_/   \__,_/\___/\__/____/_/ /_/ v0.0.5
@@ -122,11 +122,11 @@ interactsh-client
 
 使用 `interactsh-client` 命令并加上 `-sf` 或 `-session-file` 选项可以将当前会话信息存储到或读取自用户定义的文件。这对于在客户端停止或关闭后恢复同一会话以轮询交互非常有用。
 
-``` bash
+```bash
 interactsh-client -sf interact.session
 
-    _       __                       __       __  
-   (_)___  / /____  _________ ______/ /______/ /_ 
+    _       __                       __       __
+   (_)___  / /____  _________ ______/ /______/ /_
   / / __ \/ __/ _ \/ ___/ __ '/ ___/ __/ ___/ __ \
  / / / / / /_/  __/ /  / /_/ / /__/ /_(__  ) / / /
 /_/_/ /_/\__/\___/_/   \__,_/\___/\__/____/_/ /_/ 1.0.3
@@ -148,11 +148,11 @@ interactsh-client -sf interact.session
 
 通过在运行 interactsh-client 时添加 -v 参数，可以启用详细模式，从而查看完整的请求和响应。此外，还可以将输出结果保存到文件中以便后续分析。
 
-``` bash
+```bash
 interactsh-client -v -o interactsh-logs.txt
 
-    _       __                       __       __  
-   (_)___  / /____  _________ ______/ /______/ /_ 
+    _       __                       __       __
+   (_)___  / /____  _________ ______/ /______/ /_
   / / __ \/ __/ _ \/ ___/ __ '/ ___/ __/ ___/ __ \
  / / / / / /_/  __/ /  / /_/ / /__/ /_(__  ) / / /
 /_/_/ /_/\__/\___/_/   \__,_/\___/\__/____/_/ /_/ 1.0.3
@@ -185,15 +185,15 @@ Server: oast.pro
 <html><head></head><body>nyyyyyy9pmefcguvhvpvod800ehudb85c</body></html>
 ```
 
-### 使用自托管server
+### 使用自托管 server
 
-使用 server 选项，可以配置 interactsh-client 连接到自托管的Interactsh服务器。该选项可以接受一个或多个用逗号分隔的服务器地址。
+使用 server 选项，可以配置 interactsh-client 连接到自托管的 Interactsh 服务器。该选项可以接受一个或多个用逗号分隔的服务器地址。
 
 ```bash
 interactsh-client -server hackwithautomation.com
 ```
 
-我们维护了一组默认的Interactsh服务器供 interactsh-client 使用：
+我们维护了一组默认的 Interactsh 服务器供 interactsh-client 使用：
 
 ```yaml
 oast.pro
@@ -204,17 +204,17 @@ oast.fun
 oast.me
 ```
 
-默认服务器随时可能发生变化、轮换或宕机，因此我们建议您使用自托管的Interactsh服务器，以避免因默认服务器出现问题而影响使用。
+默认服务器随时可能发生变化、轮换或宕机，因此我们建议您使用自托管的 Interactsh 服务器，以避免因默认服务器出现问题而影响使用。
 
 ### 使用受保护的自托管服务器
 
-通过使用 `token` 选项，`interactsh-client` 可以连接到一个受身份验证保护的自托管Interactsh服务器。
+通过使用 `token` 选项，`interactsh-client` 可以连接到一个受身份验证保护的自托管 Interactsh 服务器。
 
 ```bash
 interactsh-client -server hackwithautomation.com -token XXX
 ```
 
-### 与Notify配合使用
+### 与 Notify 配合使用
 
 如果您不在终端前，可以使用 notify 将实时交互通知发送到任何支持的平台。
 
@@ -222,27 +222,27 @@ interactsh-client -server hackwithautomation.com -token XXX
 interactsh-client | notify
 ```
 
-##  Interactsh Web客户端
+## Interactsh Web 客户端
 
-Interactsh-web是一个免费开源的Web客户端，可以在你的浏览器中以一个易于管理的仪表板形式展示Interactsh的交互。它使用浏览器的本地存储来存储和显示所有传入的交互。默认情况下，Web客户端被配置为使用interact.sh作为默认的Interactsh服务器，并且也支持其他自托管的公共/认证的Interactsh服务器。 
+Interactsh-web 是一个免费开源的 Web 客户端，可以在你的浏览器中以一个易于管理的仪表板形式展示 Interactsh 的交互。它使用浏览器的本地存储来存储和显示所有传入的交互。默认情况下，Web 客户端被配置为使用 interact.sh 作为默认的 Interactsh 服务器，并且也支持其他自托管的公共/认证的 Interactsh 服务器。
 
-一个托管的Interactsh-web客户端实例可以在https://app.interactsh.com访问。
+一个托管的 Interactsh-web 客户端实例可以在 https://app.interactsh.com 访问。
 
 ![](/img/136621531-d72c9ece-0076-4db1-98c9-21dcba4ba09c.png)
 
-## Interactsh Docker镜像
+## Interactsh Docker 镜像
 
-Interactsh客户端还提供了一个现成的Docker镜像，可以直接运行，使用方法如下：
+Interactsh 客户端还提供了一个现成的 Docker 镜像，可以直接运行，使用方法如下：
 
-``` bash
+```bash
 docker run projectdiscovery/interactsh-client:latest
 ```
 
 ```bash
 docker run projectdiscovery/interactsh-client:latest
 
-    _       __                       __       __  
-   (_)___  / /____  _________ ______/ /______/ /_ 
+    _       __                       __       __
+   (_)___  / /____  _________ ______/ /______/ /_
   / / __ \/ __/ _ \/ ___/ __ '/ ___/ __/ ___/ __ \
  / / / / / /_/  __/ /  / /_/ / /__/ /_(__  ) / / /
 /_/_/ /_/\__/\___/_/   \__,_/\___/\__/____/_/ /_/ v1.0.0
@@ -253,27 +253,27 @@ docker run projectdiscovery/interactsh-client:latest
 [INF] c59e3crp82ke7bcnedq0cfjqdpeyyyyyn.oast.pro
 ```
 
-## Burp Suite扩展
+## Burp Suite 扩展
 
-interactsh-collaborator 是由 @wdahlenb 开发并维护的Burp Suite扩展。
+interactsh-collaborator 是由 @wdahlenb 开发并维护的 Burp Suite 扩展。
 
-- 从 releases 页面下载最新的JAR文件。
-- 打开Burp Suite → Extender → Add → Java → 选择JAR文件 → Next 
-- 安装成功后，会新出现一个名为Interactsh的选项卡。 
-- 有关更多信息，请参阅interactsh-collaborator项目。
+- 从 releases 页面下载最新的 JAR 文件。
+- 打开 Burp Suite → Extender → Add → Java → 选择 JAR 文件 → Next
+- 安装成功后，会新出现一个名为 Interactsh 的选项卡。
+- 有关更多信息，请参阅 interactsh-collaborator 项目。
 
 ![](/img/135176099-0e3fa01c-bdce-4f04-a94f-de0a34c7abf6.png)
 
-## Interactsh服务器
+## Interactsh 服务器
 
-Interactsh服务器运行多个服务，并捕获所有传入的请求。为了托管一个Interactsh服务器实例，你需要设置以下内容： 
+Interactsh 服务器运行多个服务，并捕获所有传入的请求。为了托管一个 Interactsh 服务器实例，你需要设置以下内容：
 
-- 带有自定义主机名和命名服务器的域名。 
+- 带有自定义主机名和命名服务器的域名。
 - 后台持续运行的基本云服务器实例。
 
 ### 用法
 
-``` bash
+```bash
 interactsh-server -h
 ```
 
@@ -315,7 +315,7 @@ CONFIG:
 UPDATE:
    -up, -update                 update interactsh-server to latest version
    -duc, -disable-update-check  disable automatic interactsh-server update check
-   
+
 SERVICES:
    -dns-port int           port to use for dns service (default 53)
    -http-port int          port to use for http service (default 80)
@@ -349,15 +349,15 @@ DEBUG:
 
 - 导航到 https://dcc.godaddy.com/control/portfolio/&lbrace;&lbrace;domain&rbrace;&rbrace;/settings?subtab=hostnames
 
-- 点击“添加”（Add），然后提交 `ns1` 和 `ns2`，并将您的 `SERVER_IP` 作为值。
+- 点击 “添加” (Add)，然后提交 `ns1` 和 `ns2`，并将您的 `SERVER_IP` 作为值。
 
 ![](/img/135175512-135259fb-0490-4038-845a-0b62b1b8f549.png)
 
 - 导航到 https://dcc.godaddy.com/control/dnsmanagement?domainName=&lbrace;&lbrace;domain&rbrace;&rbrace;&subtab=nameservers
 
-- 选择“更改域名服务器”（Change Nameservers）
+- 选择 “更改域名服务器” (Change Nameservers)
 
-- 选择“我将使用自己的域名服务器”（I'll use my own nameservers）
+- 选择 “我将使用自己的域名服务器” (I'll use my own nameservers)
 
 - 提交 ns1.INTERACTSH_DOMAIN 和 ns2.INTERACTSH_DOMAIN
 

@@ -1,46 +1,46 @@
 ---
-title: "Nuclei：最全教程"
-description: "Awesome SRC Experience - Nuclei：最全教程"
+title: 'Nuclei：最全教程'
+description: 'Awesome SRC Experience - Nuclei：最全教程'
 ---
 
 # Nuclei：最全教程
 
 ## 简介
 
-在这篇文章中，你将学习Nuclei是什么，它是如何工作的以及所有与该工具相关的命令。
+在这篇文章中，你将学习 Nuclei 是什么，它是如何工作的以及所有与该工具相关的命令。
 
 ## 什么是 Nuclei
 
-Nuclei是一款漏洞分析工具。Nuclei通过基于模板向目标发送请求，从而实现零误报，并能够快速扫描大量主机。
+Nuclei 是一款漏洞分析工具。Nuclei 通过基于模板向目标发送请求，从而实现零误报，并能够快速扫描大量主机。
 
-Nuclei支持多种协议进行扫描，包括TCP、DNS、HTTP、SSL、FILE、Whois、Websocket、Headless等等。
+Nuclei 支持多种协议进行扫描，包括 TCP、DNS、HTTP、SSL、FILE、Whois、Websocket、Headless 等等。
 
-仅仅使用Nuclei，我们就可以进行大量的安全检查，其结果非常出色。
+仅仅使用 Nuclei，我们就可以进行大量的安全检查，其结果非常出色。
 
-Nuclei的一些替代工具包括IpenVAS、Nessus、Nikto。我个人比较喜欢Nessus和OpenVAS。
+Nuclei 的一些替代工具包括 IpenVAS、Nessus、Nikto。我个人比较喜欢 Nessus 和 OpenVAS。
 
-简单来说，Nuclei是一款具有额外功能的漏洞分析工具。
+简单来说，Nuclei 是一款具有额外功能的漏洞分析工具。
 
 ## Nuclei 的特性
 
-- 基于YAML的模板
+- 基于 YAML 的模板
 - 可扩展的模板库
 - 支持多种协议
 - 并行快速扫描
 - 与其他工具集成
 
-## 如何安装Nuclei
+## 如何安装 Nuclei
 
-在安装Nuclei之前，请确保你已经安装了Go语言环境以及相关的依赖。以下命令用于安装Nuclei：
+在安装 Nuclei 之前，请确保你已经安装了 Go 语言环境以及相关的依赖。以下命令用于安装 Nuclei：
 
 ```bash
-Linux: sudo apt-get install nuclei 
+Linux: sudo apt-get install nuclei
 Win: go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 ```
 
-## 如何使用Nuclei
+## 如何使用 Nuclei
 
-仔细按照以下示例操作，到文章末尾，你将对这个工具非常熟悉。如果你能持续练习2-4小时，你将成为一个专业用户。
+仔细按照以下示例操作，到文章末尾，你将对这个工具非常熟悉。如果你能持续练习 2-4 小时，你将成为一个专业用户。
 
 努力工作，直到你达到目标，让我们开始吧！
 
@@ -54,15 +54,15 @@ nuclei -u http://techyrick.com
 
 ![](/img/Screenshot-2023-06-15-at-10.46.03-AM-1536x816.webp)
 
-我发现我的站点存在开放端口，并且我想扫描其中的22号端口（SSH）。
+我发现我的站点存在开放端口，并且我想扫描其中的22号端口 (SSH)。
 
 ![](/img/Screenshot-2023-06-15-at-10.52.04-AM.webp)
 
-这些命令将使用Nuclei扫描数千种已知的漏洞，并枚举目标的相关信息。扫描结果非常出色，你可以尝试在我的站点上进行扫描，查看详细的DNS记录结果。我对此感到非常惊讶。
+这些命令将使用 Nuclei 扫描数千种已知的漏洞，并枚举目标的相关信息。扫描结果非常出色，你可以尝试在我的站点上进行扫描，查看详细的 DNS 记录结果。我对此感到非常惊讶。
 
 ### 扫描多个站点
 
-为了扫描多个站点，我们可以添加`-l`命令。
+为了扫描多个站点，我们可以添加 `-l` 命令。
 
 ```bash
 nuclei -l domains.txt
@@ -122,9 +122,9 @@ nuclei -u http://techyrick.com -s critical,high,medium,low,info -as
 
 https://nuclei-templates.netlify.app/
 
-在搜索选项中，你可以输入任何你需要的内容。例如，如果你需要DNS结果，只需输入DNS并复制yaml脚本并针对目标运行即可。
+在搜索选项中，你可以输入任何你需要的内容。例如，如果你需要 DNS 结果，只需输入 DNS 并复制 yaml 脚本并针对目标运行即可。
 
-你还可以找到许多有关OSINT、PD Teams、CVE-2023、RCE和接管的模板。
+你还可以找到许多有关 OSINT、PD Teams、CVE-2023、RCE 和接管的模板。
 
 ![](/img/Screenshot-2023-06-15-at-5.23.06-PM-1536x1097.webp)
 
@@ -132,7 +132,7 @@ https://nuclei-templates.netlify.app/
 
 ### 速率限制
 
-可以使用`-rlm &lt;int&gt;` 选项以每分钟请求数的形式指定速率限制。
+可以使用 `-rlm &lt;int&gt;` 选项以每分钟请求数的形式指定速率限制。
 
 ```bash
 nuclei -u http://techyrick.com/ -rl 3 -c 2
@@ -142,13 +142,13 @@ nuclei -u http://techyrick.com/ -rl 3 -c 2
 
 我们还可以设置超时、重试和错误次数。
 
-- 超时时长(-timeout)（默认值是5）
-- 重试次数(-retries)
-- 错误次数(-mhe)
+- 超时时长 (-timeout)(默认值是 5)
+- 重试次数 (-retries)
+- 错误次数 (-mhe)
 
 ### 恢复扫描
 
-我们还可以恢复扫描，所有的扫描结果将保存在`/home/user/.config` 目录下。
+我们还可以恢复扫描，所有的扫描结果将保存在 `/home/user/.config` 目录下。
 
 ```bash
 nuclei -l domains.txt -resume /home/rick/.config/nuclei/resume-ci5g1996u63ag4n7897g.cfg
@@ -158,6 +158,6 @@ nuclei -l domains.txt -resume /home/rick/.config/nuclei/resume-ci5g1996u63ag4n78
 
 ## 结论
 
-在我个人看来，这是最好的漏洞分析下工具之一。使用它非常有趣，而且比Nikto更好。
+在我个人看来，这是最好的漏洞分析下工具之一。使用它非常有趣，而且比 Nikto 更好。
 
 我们下篇文章再见。

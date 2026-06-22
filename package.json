@@ -10,7 +10,8 @@
     "docs:fix": "node scripts/fix-markdown.mjs",
     "docs:dev": "npm run docs:fix && vitepress dev docs",
     "docs:build": "npm run docs:fix && vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write \"docs/**/*.md\" \"README.md\" && zhlint \"docs/**/*.md\" \"README.md\" --fix"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,9 @@
   },
   "homepage": "https://github.com/owl234/Awesome-SRC-experience#readme",
   "devDependencies": {
+    "prettier": "^3.8.4",
     "vitepress": "^1.6.4",
-    "vue": "^3.5.32"
+    "vue": "^3.5.32",
+    "zhlint": "^0.8.2"
   }
 }
